@@ -237,7 +237,6 @@ def generate_markdown_text(title, headers, rows, tag):
     # changes on Github
     text += '__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/{}...{})__\n\n'.format(tag['pre_tag_name'], tag['tag_name'])
     # git commands
-    text += '__Git Command:__ {}\n\n'
     text += """\
 ```
 >> git diff {} {}
