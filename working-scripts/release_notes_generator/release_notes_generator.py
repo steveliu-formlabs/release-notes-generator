@@ -277,11 +277,8 @@ def command_prompt_step1(component_tags):
     if option_number == 0:
         print("Input name of new component: ", end='')
         component = input().strip()
-
-        print(os.getcwd())
         if not os.path.isdir(os.path.join('components', component)):
             raise ValueError('No {} found under components directory.')
-        print(os.path.join('components', component))
 
         print('Input the version number: ', end='')
         version = input().strip()
@@ -531,6 +528,7 @@ def main():
 
     # step 2: open editor and generate docs
     command_prompt_step2(component_tags)
+    print(component_tags)
 
     # step 3 & 4: commit the codes and push the codes
     command_prompt_step3_step4(component, version, remote, branch)
