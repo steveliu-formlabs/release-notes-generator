@@ -200,7 +200,7 @@ def fetch_jira_tickets(fts):
     return tickets
 
 
-def generate_markdown_text(title, headers, rows, pre_tag_name):
+def generate_markdown_text(title, headers, rows, tag):
     """Return string for the MarkDown Table.
 
     A Single Markdown Table:
@@ -233,7 +233,10 @@ def generate_markdown_text(title, headers, rows, pre_tag_name):
         text += '\n'
     text += '\n'
     # pre release tag
-    text += '__Previous Release:__ {}\n\n'.format(pre_tag_name)
+    text += '__Previous Release:__ {}\n'.format(tag['pre_tag_name'])
+    # changes on Github
+    text += '__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/{}...{})__\n'.format(tag['pre_tag_name'], tag['tag_name'])
+
     return text
 
 
