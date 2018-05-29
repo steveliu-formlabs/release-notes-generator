@@ -350,7 +350,7 @@ def command_prompt_step2(component_tags):
     print()
 
 
-def command_prompt_step3_step4(component, version):
+def command_prompt_step3_step4(component, version, remote, branch):
     """Stage and commit all the documentations and then tag the commitment.
     """
     tag = 'release/{}/{}'.format(component, version)
@@ -382,8 +382,8 @@ def command_prompt_step3_step4(component, version):
         # list the description TODO replace the master & git push -u upstream
         print('4. The release script is going to run the following PUSH commands.')
         print()
-        print('    >> git push upstream master')
-        print('    >> git push upstream {}'.format(tag))
+        print('    >> git push {} master'.format(remote, branch))
+        print('    >> git push {} {}'.format(remote, tag))
         print()
         print('Do you want the script run these commands for you? [Y/N]: ', end='')
 
@@ -393,6 +393,11 @@ def command_prompt_step3_step4(component, version):
             raise ValueError('Only "Y", "N", "Yes" and "No" are allowed')
 
         # TODO: git push commands
+        # add & commit & tag
+        cmd = ['git', 'push', remote, branch]
+        subprocess.check_output(cmd).decode('unicode_escape')
+        cmd = ['git', 'push', remote, tag]
+        subprocess.check_output(cmd).decode('unicode_escape')
 
     else:
         # list the description TODO replace the master & git push -u upstream
@@ -415,7 +420,8 @@ def main():
 
     # get branch name
     branch = get_current_branch()
-    remote = ''
+    remote = 'upstream'
+    print('0. Current branch is {} and current remote is {}.\n'.format(branch, remote))
 
     # fetch release tags
     component_tags = fetch_github_release()
@@ -427,7 +433,7 @@ def main():
     command_prompt_step2(component_tags)
 
     # step 3 & 4: commit the codes and push the codes
-    command_prompt_step3_step4(component, version)
+    command_prompt_step3_step4(component, version, remote, branch)
 
 
 if __name__ == '__main__':
