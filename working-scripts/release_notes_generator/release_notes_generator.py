@@ -280,7 +280,7 @@ def command_prompt_step1(component_tags):
         print("Input name of new component: ", end='')
         component = input().strip()
         if not os.path.isdir(os.path.join('components', component)):
-            raise ValueError('No {} found under components directory.')
+            raise ValueError('No {} found under components directory.'.format(component))
 
         print('Input the version number: ', end='')
         version = input().strip()
