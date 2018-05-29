@@ -7,7 +7,7 @@
 
 __Previous Release:__ release/hello/0.0.14
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/release/hello/0.0.14...release/hello/0.0.15)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/d8d32e14e9f72db4911fe5f09be5779004bbecb1...853c746907123ce42dc149bef83965fa09203018)__
 
 ```
 >> git diff release/hello/0.0.14 release/hello/0.0.15
@@ -22,7 +22,7 @@ __[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes
 
 __Previous Release:__ release/hello/0.0.13
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/release/hello/0.0.13...release/hello/0.0.14)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/853c746907123ce42dc149bef83965fa09203018...7e4d8a30d3e6c0a5f2d48473d6c893d0a962a8c0)__
 
 ```
 >> git diff release/hello/0.0.13 release/hello/0.0.14
@@ -37,7 +37,7 @@ __[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes
 
 __Previous Release:__ release/hello/0.0.12
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/release/hello/0.0.12...release/hello/0.0.13)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/7e4d8a30d3e6c0a5f2d48473d6c893d0a962a8c0...66ef215455607793851640bcd2592383e3998cf0)__
 
 ```
 >> git diff release/hello/0.0.12 release/hello/0.0.13
@@ -52,7 +52,7 @@ __[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes
 
 __Previous Release:__ release/hello/0.0.11
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/release/hello/0.0.11...release/hello/0.0.12)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/66ef215455607793851640bcd2592383e3998cf0...043bb1ac2616c2424c42608adc7c316dc9e86879)__
 
 ```
 >> git diff release/hello/0.0.11 release/hello/0.0.12
@@ -67,7 +67,7 @@ __[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes
 
 __Previous Release:__ release/hello/0.0.10
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/release/hello/0.0.10...release/hello/0.0.11)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/043bb1ac2616c2424c42608adc7c316dc9e86879...9319d50ea7d7ae81cdbf6189b1a9d25352501136)__
 
 ```
 >> git diff release/hello/0.0.10 release/hello/0.0.11
@@ -82,7 +82,7 @@ __[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes
 
 __Previous Release:__ release/hello/0.0.9
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/release/hello/0.0.9...release/hello/0.0.10)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/9319d50ea7d7ae81cdbf6189b1a9d25352501136...633d905986592e24be56df373ac0e325d3f6536b)__
 
 ```
 >> git diff release/hello/0.0.9 release/hello/0.0.10
@@ -97,7 +97,7 @@ __[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes
 
 __Previous Release:__ release/hello/0.0.8
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/release/hello/0.0.8...release/hello/0.0.9)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/633d905986592e24be56df373ac0e325d3f6536b...23b959e9ca2d71143c68e40b81c4e969e6413f47)__
 
 ```
 >> git diff release/hello/0.0.8 release/hello/0.0.9
@@ -112,7 +112,7 @@ __[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes
 
 __Previous Release:__ release/hello/0.0.7
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/release/hello/0.0.7...release/hello/0.0.8)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/23b959e9ca2d71143c68e40b81c4e969e6413f47...36195428d797a7723eead6c68a1f04efb54cb94d)__
 
 ```
 >> git diff release/hello/0.0.7 release/hello/0.0.8
@@ -128,7 +128,7 @@ __[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes
 
 __Previous Release:__ release/hello/0.0.6
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/release/hello/0.0.6...release/hello/0.0.7)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/36195428d797a7723eead6c68a1f04efb54cb94d...b02385584ca8983aa9b8be4cd708e5c0be24872a)__
 
 ```
 >> git diff release/hello/0.0.6 release/hello/0.0.7
@@ -144,7 +144,7 @@ __[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes
 
 __Previous Release:__ release/hello/0.0.5
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/release/hello/0.0.5...release/hello/0.0.6)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/b02385584ca8983aa9b8be4cd708e5c0be24872a...4c722e62666a7d841077393da886933dd00674d6)__
 
 ```
 >> git diff release/hello/0.0.5 release/hello/0.0.6
@@ -159,7 +159,7 @@ __[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes
 
 __Previous Release:__ release/hello/0.0.3
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/release/hello/0.0.3...release/hello/0.0.5)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/4c722e62666a7d841077393da886933dd00674d6...4036a3d534f6bac1291fa700ace612466b6429ea)__
 
 ```
 >> git diff release/hello/0.0.3 release/hello/0.0.5
@@ -175,7 +175,7 @@ __[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes
 
 __Previous Release:__ release/hello/0.0.3
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/release/hello/0.0.3...release/hello/0.0.4)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/d42dd91fe4fa0d89ba107ad98e913ae6b458f601...4036a3d534f6bac1291fa700ace612466b6429ea)__
 
 ```
 >> git diff release/hello/0.0.3 release/hello/0.0.4
@@ -190,7 +190,7 @@ __[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes
 
 __Previous Release:__ release/hello/0.0.2
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/release/hello/0.0.2...release/hello/0.0.3)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/4036a3d534f6bac1291fa700ace612466b6429ea...11a740405b737bef375b556a6c24b8278a549dc2)__
 
 ```
 >> git diff release/hello/0.0.2 release/hello/0.0.3
@@ -205,7 +205,7 @@ __[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes
 
 __Previous Release:__ release/hello/0.0.1
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/release/hello/0.0.1...release/hello/0.0.2)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/11a740405b737bef375b556a6c24b8278a549dc2...9bec4c57b339540418c21430b2151e07639c4076)__
 
 ```
 >> git diff release/hello/0.0.1 release/hello/0.0.2
@@ -219,7 +219,7 @@ __[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes
 
 __Previous Release:__ release/hello/0.0.1
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/release/hello/0.0.1...release/hello/0.0.1)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/9bec4c57b339540418c21430b2151e07639c4076...9bec4c57b339540418c21430b2151e07639c4076)__
 
 ```
 >> git diff release/hello/0.0.1 release/hello/0.0.1
