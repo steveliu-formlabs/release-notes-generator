@@ -277,51 +277,86 @@ def command_prompt_step1(component_tags):
     if option_number == 0:
         print("Input name of new component: ", end='')
         component = input().strip()
+
+        if not os.path.isdir(os.path.join('components', component)):
+            raise ValueError('No {} found under components directory.')
+
         print('Input the version number: ', end='')
         version = input().strip()
+
+        # check the format of version
+        find_version = re.findall(VERSION_REGEX, version)[0]
+        if version != find_version:
+            raise ValueError('{} is not a valid version format.'.format(find_version))
+        print()
+
+        # find the first commit
+        cmd = ['git', 'log', '--pretty=format:%H', '--reverse']
+        out = subprocess.check_output(cmd).decode('unicode_escape')
+        first_commit_id = out.strip().split()[0]
+
+        # get latest commit id
+        cmd = ['git', 'log', '--pretty=format:%H']
+        out = subprocess.check_output(cmd).decode('unicode_escape')
+        latest_commit_id = out.strip().split()[0]
+
+        # root commit & the initial release
+        component_tags[component] = [
+            {
+                'tag_name': '',
+                'tag_commit_id': first_commit_id
+            },
+            {
+                'tag_name': 'release/{}/{}'.format(component, version),
+                'tag_commit_id': latest_commit_id,
+                'pre_tag_name': '',
+                'pre_tag_commit_id': first_commit_id,
+            }
+        ]
+
     else:
         component = idx_component[option_number]
         cur_version = component_tags[component][-1]['tag_name'].rsplit('/')[-1]
         print('Input the version (current latest version is {}): '.format(cur_version), end='')
         version = input().strip()
 
-    # check the format of version
-    find_version = re.findall(VERSION_REGEX, version)[0]
-    if version != find_version:
-        raise ValueError('{} is not a valid version format.'.format(find_version))
-    print()
+        # check the format of version
+        find_version = re.findall(VERSION_REGEX, version)[0]
+        if version != find_version:
+            raise ValueError('{} is not a valid version format.'.format(find_version))
+        print()
 
-    # get latest commit id
-    cmd = ['git', 'log', '--pretty=format:%H']
-    out = subprocess.check_output(cmd).decode('unicode_escape')
-    latest_commit_id = out.strip().split()[0]
+        # get latest commit id
+        cmd = ['git', 'log', '--pretty=format:%H']
+        out = subprocess.check_output(cmd).decode('unicode_escape')
+        latest_commit_id = out.strip().split()[0]
 
-    # add new tag from user
-    if component in component_tags:
+        # add new tag from user
+        if component in component_tags:
 
-        component_tags[component].append({
-            'tag_name': 'release/{}/{}'.format(component, version),
-            'tag_commit_id': latest_commit_id
-        })
+            component_tags[component].append({
+                'tag_name': 'release/{}/{}'.format(component, version),
+                'tag_commit_id': latest_commit_id
+            })
 
-        # commit cache
-        commit_id_tag_name = {}
-        for tag in component_tags[component]:
-            commit_id_tag_name[tag['tag_commit_id']] = tag['tag_name']
+            # commit cache
+            commit_id_tag_name = {}
+            for tag in component_tags[component]:
+                commit_id_tag_name[tag['tag_commit_id']] = tag['tag_name']
 
-        # find the ancestor
-        for i in range(len(component_tags[component]) - 2, 0, -1):
+            # find the ancestor
+            for i in range(len(component_tags[component]) - 2, 0, -1):
 
-            # use `git merge-base` to find latest common ancestor
-            cmd = ['git', 'merge-base', component_tags[component][i]['tag_commit_id'], latest_commit_id]
-            out = subprocess.check_output(cmd).decode('unicode_escape')
-            ancestor_commit_id = out.strip()
+                # use `git merge-base` to find latest common ancestor
+                cmd = ['git', 'merge-base', component_tags[component][i]['tag_commit_id'], latest_commit_id]
+                out = subprocess.check_output(cmd).decode('unicode_escape')
+                ancestor_commit_id = out.strip()
 
-            # if we have ancestor in our commit cache, it means the tag at index j is our previous release
-            if ancestor_commit_id in commit_id_tag_name:
-                component_tags[component][-1]['pre_tag_name'] = commit_id_tag_name[ancestor_commit_id]
-                component_tags[component][-1]['pre_tag_commit_id'] = ancestor_commit_id
-                break
+                # if we have ancestor in our commit cache, it means the tag at index j is our previous release
+                if ancestor_commit_id in commit_id_tag_name:
+                    component_tags[component][-1]['pre_tag_name'] = commit_id_tag_name[ancestor_commit_id]
+                    component_tags[component][-1]['pre_tag_commit_id'] = ancestor_commit_id
+                    break
 
     # return [component, version]
     return component, version
