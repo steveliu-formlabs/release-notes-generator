@@ -436,7 +436,6 @@ def command_prompt_step2(component_tags):
                 component_text[component] = ''
             text = generate_markdown_text(tags[i]['tag_name'], headers, rows, tags[i])
             component_text[component] += text
-        break
     print()
 
     # write text into the files
