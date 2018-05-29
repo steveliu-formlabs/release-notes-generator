@@ -379,7 +379,7 @@ def command_prompt_step3_step4(component, version, remote, branch):
         cmd = ['git', 'tag', '{}'.format(tag)]
         subprocess.check_output(cmd).decode('unicode_escape')
 
-        # list the description TODO replace the master & git push -u upstream
+        # list the description 
         print('4. The release script is going to run the following PUSH commands.')
         print()
         print('    >> git push {} master'.format(remote, branch))
@@ -399,14 +399,14 @@ def command_prompt_step3_step4(component, version, remote, branch):
         subprocess.check_output(cmd).decode('unicode_escape')
 
     else:
-        # list the description TODO replace the master & git push -u upstream
+        # list the description
         print('4. Please type the following commands to commit, tag and push the codes by yourself.')
         print()
         print('    >> git add .')
         print('    >> git commit -m ')
         print('    >> git tag {}'.format(tag))
-        print('    >> git push upstream master'.format(tag))
-        print('    >> git tag {}'.format(tag))
+        print('    >> git push {} {}'.format(remote, branch))
+        print('    >> git push {} {}'.format(remote, tag))
         print()
 
 
