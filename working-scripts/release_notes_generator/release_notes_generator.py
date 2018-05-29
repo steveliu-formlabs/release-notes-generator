@@ -364,7 +364,7 @@ def command_prompt_step2(component_tags):
         pprint.pprint(component)
         pprint.pprint(tags)
         for i in range(len(tags) - 1, 0, -1):
-            print('    "{}" release notes is generating...'.format(tags[i]['tag']))
+            print('    "{}" release notes is generating...'.format(tags[i]['tag_name']))
 
             # List all github/jira tickets between them
             github_tickets = fetch_github_tickets(tags[i]['pre_tag_commit_id'], tags[i]['tag_commit_id'])
