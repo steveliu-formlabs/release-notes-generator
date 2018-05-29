@@ -324,7 +324,7 @@ def command_prompt_step2(component_tags):
             for ticket in tickets:
                 rows.append([
                     ticket['date'],
-                    ticket['summary'],
+                    ticket['title'],
                     ticket['assignee_name'],
                     ticket['reporter_name'],
                     ticket['priority_name'],
@@ -379,7 +379,7 @@ def command_prompt_step3_step4(component, version, remote, branch):
         cmd = ['git', 'tag', '{}'.format(tag)]
         subprocess.check_output(cmd).decode('unicode_escape')
 
-        # list the description 
+        # list the description
         print('4. The release script is going to run the following PUSH commands.')
         print()
         print('    >> git push {} master'.format(remote, branch))
