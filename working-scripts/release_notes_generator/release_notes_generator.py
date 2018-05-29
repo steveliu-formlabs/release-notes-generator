@@ -54,18 +54,14 @@ def get_current_branch():
 def fetch_github_release():
     """Return a dictionary contain the branches and version numbers.
     """
-    # find all tags
+    # tags sort by version number
     cmd = ['git', 'tag']
     out = subprocess.check_output(cmd)
-
-    # sort by version number
     cmd = ['sort', '-V']
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     out = proc.communicate(out)[0].decode('utf-8')
-    tags = out.strip().split('\n')
-
-    tags = re.findall(RELEASE_BRANCH_REGEX, out)
-    if len(tags) == 0:
+    tag_names = re.findall(RELEASE_BRANCH_REGEX, out)
+    if len(tag_names) == 0:
         raise ValueError('No Tags matching pattern {} found.'.format(RELEASE_BRANCH_REGEX))
 
     # find the first commit
@@ -73,16 +69,52 @@ def fetch_github_release():
     out = subprocess.check_output(cmd).decode('unicode_escape')
     first_commit_id = out.strip().split()[0]
 
-    # group the version number
+    # group the tags under component
     component_tags = {}
-    for tag in tags:
-        _, component, version = tag.split('/')
-        if component not in component_tags:
-            component_tags[component] = [{'tag': None, 'commit_id': first_commit_id}]
-        # find commit id by tag
-        cmd = ['git', 'rev-list', '-n', '1', tag]
+    for tag_name in tag_names:
+        _, component, version = tag_name.split('/')
+        cmd = ['git', 'rev-list', '-n', '1', tag_name]
         out = subprocess.check_output(cmd).decode('unicode_escape')
-        component_tags[component].append({'tag': tag, 'commit_id': out.strip()})
+        if component not in component_tags:
+            # the root commit
+            component_tags[component] = [{'tag_name': '', 'tag_commit_id': first_commit_id}]
+        component_tags[component].append({'tag_name': tag_name, 'tag_commit_id': out.strip()})
+
+    # find ancestor:
+    #
+    #   --------*-------------------*------------------------------------------- master
+    #                                                   \                \
+    #           ^                   ^                    \                \
+    #           ^                   ^                     \                \
+    #   sfwc-liveusb/1.1.0    sfwc-liveusb/1.1.1           ---*             -----------*
+    #
+    #                                                         ^                        ^
+    #                                                         ^                        ^
+    #                                                   sfwc-liveusb/1.1.3        sfwc-liveusb/1.1.4
+    #
+    #
+    # Conclusion:
+    #
+    #   The ancestor of `sfwc-liveusb/1.1.3` should be `sfwc-liveusb/1.1.1`.
+    #   The ancestor of `sfwc-liveusb/1.1.4` should also be `sfwc-liveusb/1.1.1`.
+    #
+    for component, tags in component_tags.items():
+        commit_id_tag_name = {}
+        for tag in tags:
+            commit_id_tag_name[tag['tag_commit_id']] = tag['tag_name']
+        for i in range(1, len(tags)):
+            for j in range(i - 1, -1, -1):
+                # use `git merge-base` to find latest common ancestor
+                cmd = ['git', 'merge-base', tags[i]['tag_commit_id'], tags[j]['tag_commit_id']]
+                out = subprocess.check_output(cmd).decode('unicode_escape')
+                ancestor_commit_id = out.strip()
+
+                # if we have ancestor in our commit cache, it means the tag at index j is our previous release
+                if ancestor_commit_id in commit_id_tag_name:
+                    tags[i]['pre_tag_name'] = commit_id_tag_name[ancestor_commit_id]
+                    tags[i]['pre_tag_commit_id'] = ancestor_commit_id
+                    break
+
     return component_tags
 
 
@@ -237,7 +269,7 @@ def command_prompt_step1(component_tags):
         version = input().strip()
     else:
         component = idx_component[option_number]
-        cur_version = component_tags[component][-1]['tag'].rsplit('/')[-1]
+        cur_version = component_tags[component][-1]['tag_name'].rsplit('/')[-1]
         print('Input the version (current latest version is {}): '.format(cur_version), end='')
         version = input().strip()
 
@@ -312,7 +344,7 @@ def command_prompt_step2(component_tags):
             print('    "{}" release notes is generating...'.format(tags[i]['tag']))
 
             # List all github/jira tickets between them
-            github_tickets = fetch_github_tickets(tags[i-1], tags[i])
+            github_tickets = fetch_github_tickets(tags[i]['pre_tag_commit_id'], tags[i]['tag_commit_id'])
             fts = [ticket['ft'] for ticket in github_tickets]
             jira_tickets = fetch_jira_tickets(fts)
 
