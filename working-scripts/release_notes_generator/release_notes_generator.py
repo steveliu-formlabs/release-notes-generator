@@ -529,7 +529,6 @@ def main():
 
     # step 2: open editor and generate docs
     command_prompt_step2(component_tags)
-    print(component_tags)
 
     # step 3 & 4: commit the codes and push the codes
     command_prompt_step3_step4(component, version, remote, branch)
