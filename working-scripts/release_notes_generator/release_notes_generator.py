@@ -32,7 +32,7 @@ JIRA_TOKEN = 'WEG7yCBj03YHnwPJkDRL34F7'
 # regex
 FT_REGEX = '[A-Z]{2}-[0-9]+|$'
 GITHUB_PULL_ID_REGEX = ' #[0-9]+ |$'
-RELEASE_BRANCH_REGEX = 'release/[0-1a-z-]+/(?:[0-9]+\.)+[0-9]'
+RELEASE_BRANCH_REGEX = 'release/[0-1a-z-]+/(?:[0-9]+\.)+[0-9]+'
 VERSION_REGEX = '(?:[0-9]+\.)+[0-9]+|$'
 
 # misc
