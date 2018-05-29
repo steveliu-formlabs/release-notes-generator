@@ -57,6 +57,8 @@ def fetch_github_release():
     # tags sort by version number
     cmd = ['git', 'tag']
     out = subprocess.check_output(cmd)
+
+    # TODO sort by commit day
     cmd = ['sort', '-V']
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     out = proc.communicate(out)[0].decode('utf-8')
@@ -235,7 +237,7 @@ def generate_markdown_text(title, headers, rows, tag):
     # pre release tag
     text += '__Previous Release:__ {}\n\n'.format(tag['pre_tag_name'])
     # changes on Github
-    text += '__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/{}...{})__\n\n'.format(tag['pre_tag_name'], tag['tag_name'])
+    text += '__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/{}...{})__\n\n'.format(tag['tag_commit_id'], tag['pre_tag_commit_id'])
     # git commands
     text += """\
 ```
