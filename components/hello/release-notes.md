@@ -1,4 +1,22 @@
 
+## release/hello/0.0.16
+
+| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
+|------|---------|----------|----------|----------|--------|--------|------|
+|2018-05-29|sjcjc|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
+|2018-05-29|Release release/world/0.0.2|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
+|2018-05-29|1234|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
+|2018-05-29|hh|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
+
+__Previous Release:__ release/hello/0.0.15
+
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/d8d32e14e9f72db4911fe5f09be5779004bbecb1...0cde5d59bc2f05391e5dc4d62a068ad2e13733cf)__
+
+```
+>> git diff d8d32e14e9f72db4911fe5f09be5779004bbecb1 0cde5d59bc2f05391e5dc4d62a068ad2e13733cf
+```
+
+
 ## release/hello/0.0.15
 
 | Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
