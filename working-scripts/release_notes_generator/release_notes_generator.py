@@ -55,14 +55,10 @@ def fetch_github_release():
     """Return a dictionary contain the branches and version numbers.
     """
     # tags sort by version number
-    cmd = ['git', 'tag']
-    out = subprocess.check_output(cmd)
-
-    # TODO sort by commit day
-    cmd = ['sort', '-V']
-    proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-    out = proc.communicate(out)[0].decode('utf-8')
+    cmd = ['git', 'tag', '--sort=-creatordate']
+    out = subprocess.check_output(cmd).decode('unicode_escape')
     tag_names = re.findall(RELEASE_BRANCH_REGEX, out)
+    tag_names = tag_names[::-1]
     if len(tag_names) == 0:
         raise ValueError('No Tags matching pattern {} found.'.format(RELEASE_BRANCH_REGEX))
 
