@@ -288,8 +288,8 @@ def command_prompt_step1(component_tags):
     if component in component_tags:
 
         component_tags[component].append({
-            'tag': 'release/{}/{}'.format(component, version),
-            'commit_id': latest_commit_id
+            'tag_name': 'release/{}/{}'.format(component, version),
+            'tag_commit_id': latest_commit_id
         })
 
         # commit cache
