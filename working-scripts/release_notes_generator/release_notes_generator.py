@@ -392,7 +392,6 @@ def command_prompt_step3_step4(component, version, remote, branch):
         if run_script not in ['y', 'n', 'yes', 'no']:
             raise ValueError('Only "Y", "N", "Yes" and "No" are allowed')
 
-        # TODO: git push commands
         # add & commit & tag
         cmd = ['git', 'push', remote, branch]
         subprocess.check_output(cmd).decode('unicode_escape')
