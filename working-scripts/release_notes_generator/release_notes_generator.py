@@ -243,7 +243,7 @@ def generate_markdown_text(title, headers, rows, tag):
 ```
 >> git diff {} {}
 ```
-""".format(tag['pre_tag_name'], tag['tag_name'])
+""".format(tag['pre_tag_commit_id'], tag['tag_commit_id'])
     # git commands
     text += '\n'
     return text
