@@ -284,12 +284,32 @@ def command_prompt_step1(component_tags):
     out = subprocess.check_output(cmd).decode('unicode_escape')
     latest_commit_id = out.strip().split()[0]
 
-    # we add new component & tag
+    # add new tag from user
     if component in component_tags:
+
         component_tags[component].append({
             'tag': 'release/{}/{}'.format(component, version),
             'commit_id': latest_commit_id
         })
+
+        # commit cache
+        commit_id_tag_name = {}
+        for tag in component_tags[component]:
+            commit_id_tag_name[tag['tag_commit_id']] = tag['tag_name']
+
+        # find the ancestor
+        for i in range(len(component_tags[component]) - 2, 0, -1):
+
+            # use `git merge-base` to find latest common ancestor
+            cmd = ['git', 'merge-base', component_tags[component][i]['tag_commit_id'], latest_commit_id]
+            out = subprocess.check_output(cmd).decode('unicode_escape')
+            ancestor_commit_id = out.strip()
+
+            # if we have ancestor in our commit cache, it means the tag at index j is our previous release
+            if ancestor_commit_id in commit_id_tag_name:
+                component_tags[component][-1]['pre_tag_name'] = commit_id_tag_name[ancestor_commit_id]
+                component_tags[component][-1]['pre_tag_commit_id'] = ancestor_commit_id
+                break
 
     # return [component, version]
     return component, version
