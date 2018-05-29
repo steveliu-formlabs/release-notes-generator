@@ -393,7 +393,7 @@ def command_prompt_step2(component_tags):
             # concatenate the Markdown text
             if component not in component_text:
                 component_text[component] = ''
-            text = generate_markdown_text(tags[i]['tag_name'], headers, rows, tags[i]['pre_tag_name'])
+            text = generate_markdown_text(tags[i]['tag_name'], headers, rows, tags[i])
             component_text[component] += text
         break
     print()
