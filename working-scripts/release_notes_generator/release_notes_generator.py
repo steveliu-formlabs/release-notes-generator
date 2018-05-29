@@ -340,6 +340,9 @@ def command_prompt_step2(component_tags):
     print()
     for component, tags in component_tags.items():
         # Iterate the versions from latest to oldest
+        import pprint
+        pprint.pprint(component)
+        pprint.pprint(tags)
         for i in range(len(tags) - 1, 0, -1):
             print('    "{}" release notes is generating...'.format(tags[i]['tag']))
 
