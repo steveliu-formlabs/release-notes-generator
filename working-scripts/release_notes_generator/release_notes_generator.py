@@ -33,7 +33,7 @@ JIRA_TOKEN = 'WEG7yCBj03YHnwPJkDRL34F7'
 FT_REGEX = '[A-Z]{2}-[0-9]+|$'
 GITHUB_PULL_ID_REGEX = ' #[0-9]+ |$'
 RELEASE_BRANCH_REGEX = 'release/[0-1a-z-]+/(?:[0-9]+\.)+[0-9]'
-VERSION_REGEX = '(?:[0-9]+\.)+[0-9]|$'
+VERSION_REGEX = '(?:[0-9]+\.)+[0-9]+|$'
 
 # misc
 COMPONENT_FILE_PATH = 'components/{}/release-notes.md'
@@ -233,9 +233,9 @@ def generate_markdown_text(title, headers, rows, tag):
         text += '\n'
     text += '\n'
     # pre release tag
-    text += '__Previous Release:__ {}\n'.format(tag['pre_tag_name'])
+    text += '__Previous Release:__ {}\n\n'.format(tag['pre_tag_name'])
     # changes on Github
-    text += '__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/{}...{})__\n'.format(tag['pre_tag_name'], tag['tag_name'])
+    text += '__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/{}...{})\n\n'.format(tag['pre_tag_name'], tag['tag_name'])
 
     return text
 
