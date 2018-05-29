@@ -200,7 +200,7 @@ def fetch_jira_tickets(fts):
     return tickets
 
 
-def generate_markdown_text(title, headers, rows):
+def generate_markdown_text(title, headers, rows, pre_tag_name):
     """Return string for the MarkDown Table.
 
     A Single Markdown Table:
@@ -232,6 +232,8 @@ def generate_markdown_text(title, headers, rows):
         text += '|' + '|'.join(row) + '|'
         text += '\n'
     text += '\n'
+    # pre release tag
+    text += '__Previous Release:__ {}\n\n'.format(pre_tag_name)
     return text
 
 
@@ -360,9 +362,6 @@ def command_prompt_step2(component_tags):
     print()
     for component, tags in component_tags.items():
         # Iterate the versions from latest to oldest
-        import pprint
-        pprint.pprint(component)
-        pprint.pprint(tags)
         for i in range(len(tags) - 1, 0, -1):
             print('    "{}" release notes is generating...'.format(tags[i]['tag_name']))
 
@@ -391,7 +390,7 @@ def command_prompt_step2(component_tags):
             # concatenate the Markdown text
             if component not in component_text:
                 component_text[component] = ''
-            text = generate_markdown_text(tags[i]['tag_name'], headers, rows)
+            text = generate_markdown_text(tags[i]['tag_name'], headers, rows, tags[i]['pre_tag_name'])
             component_text[component] += text
         break
     print()
