@@ -118,12 +118,12 @@ def fetch_github_release():
     return component_tags
 
 
-def fetch_github_tickets(pre_tag, cur_tag):
+def fetch_github_tickets(tag):
     """Return a list of dict with Github information.
     """
     # find commits between two commits
     cmd = ['git', '--no-pager', 'log', '--format="%ad %H %s"', '--date=short',
-           pre_tag['commit_id'] + '...' + cur_tag['commit_id']]
+           tag['pre_tag_commit_id'] + '...' + tag['tag_commit_id']]
     out = subprocess.check_output(cmd).decode('unicode_escape')
 
     # find valid tickets mentioned in those commits
@@ -136,7 +136,7 @@ def fetch_github_tickets(pre_tag, cur_tag):
 
         # find files changed
         file_changed = False
-        dir_path = os.path.join('components', cur_tag['tag'].strip('/').split('/')[1])
+        dir_path = os.path.join('components', tag['tag_name'].strip('/').split('/')[1])
 
         cmd = ['git', '--no-pager', 'show', '--stat', commit_id]
         out = subprocess.check_output(cmd).decode('unicode_escape')
@@ -367,7 +367,7 @@ def command_prompt_step2(component_tags):
             print('    "{}" release notes is generating...'.format(tags[i]['tag_name']))
 
             # List all github/jira tickets between them
-            github_tickets = fetch_github_tickets(tags[i]['pre_tag_commit_id'], tags[i]['tag_commit_id'])
+            github_tickets = fetch_github_tickets(tags[i])
             fts = [ticket['ft'] for ticket in github_tickets]
             jira_tickets = fetch_jira_tickets(fts)
 
