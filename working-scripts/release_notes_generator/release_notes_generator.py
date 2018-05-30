@@ -4,7 +4,6 @@ import os
 import subprocess
 import requests
 import time
-import tempfile
 
 
 # github
@@ -67,7 +66,7 @@ def get_latest_commit_id():
     return out.strip().split()[0]
 
 
-def get_release_tag_names():
+def get_release_tag_names_by_date():
     """Return git tags sorted by created date.
     """
     cmd = ['git', 'tag', '--sort=-creatordate']
@@ -79,10 +78,22 @@ def get_release_tag_names():
     return tags
 
 
+def get_release_tag_names_by_version():
+    """Return git tags sorted by version number.
+    """
+    cmd = ['git', 'tag']
+    out = subprocess.check_output(cmd)
+    cmd = ['sort', '-V']
+    proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    out = proc.communicate(out)[0].decode('utf-8')
+    tags = out.strip().split('\n')
+    return tags
+
+
 def fetch_github_release():
     """Return a dictionary contain the component and version numbers.
     """
-    tag_names = get_release_tag_names()
+    tag_names = get_release_tag_names_by_date()
     first_commit_id = get_first_commit_id()
 
     # group the tags under each component
@@ -208,7 +219,7 @@ def fetch_jira_tickets(fts):
                         'priority_icon_url': data['fields']['priority']['iconUrl'],
                         'status_name': data['fields']['status']['name'],
                         'status_icon_url': data['fields']['status']['iconUrl'],
-                        'jira_url': 'https://formlabs.atlassian.net/browse/{}'.format(ft),
+                        'jira_url': '{}{}'.format(JIRA_TICKET_URL, ft),
                     })
                     break
                 time.sleep(sleep_sec)
@@ -218,7 +229,7 @@ def fetch_jira_tickets(fts):
     return tickets
 
 
-def generate_markdown_text(title, headers, rows, tag):
+def generate_markdown_text(release_date, title, headers, rows, tag):
     """Return string for the MarkDown Table.
 
     A Single Markdown Table:
@@ -232,7 +243,7 @@ def generate_markdown_text(title, headers, rows, tag):
     | rows[2][0] | rows[2][1] | rows[2][2] | rows[2][3] |
     | rows[3][0] | rows[3][1] | rows[3][2] | rows[3][3] |
 
-    __Previous Release:__
+    Previous Release:
 
     ```
         git diff xxxxx xxxx
@@ -246,7 +257,7 @@ def generate_markdown_text(title, headers, rows, tag):
 
     text = '\n'
     # table title
-    text += '## {}\n\n'.format(title)
+    text += '## `{}` `{}`\n\n'.format(title, release_date)
     # table header
     text += '| {} |\n'.format(' | '.join(headers))
     # table separator
@@ -257,16 +268,12 @@ def generate_markdown_text(title, headers, rows, tag):
         text += '\n'
     text += '\n'
     # previoud release tag
-    text += 'Previous Release: __`{}`__\n\n'.format(tag['pre_tag_name'])
+    text += 'Previous Release: `{}`\n\n'.format(tag['pre_tag_name'])
     # compare changes on Github
     text += '[Compare changes on Github]({}{}...{})\n\n'.format(
         GITHUB_CMP_URL, tag['pre_tag_commit_id'], tag['tag_commit_id'])
     # git commands
-    text += """\
-```
->> git diff {} {}
-```\n
-""".format(tag['pre_tag_commit_id'], tag['tag_commit_id'])
+    text += '\n```\n>> git diff {} {}\n```\n'.format(tag['pre_tag_commit_id'], tag['tag_commit_id'])
     return text
 
 
@@ -332,15 +339,23 @@ def command_prompt_step1(component_tags):
         ]
     # add a new version current component
     else:
-        # get the version number
         component = idx_component[option_number]
-        cur_version = component_tags[component][-1]['tag_name'].rsplit('/')[-1]
-        print('Input the version (current latest version is {}): '.format(cur_version), end='')
+
+        # get the version number
+        print()
+        tag_names = get_release_tag_names_by_version()
+        for tag_name in tag_names:
+            if tag_name.startswith('release/{}'.format(component)):
+                print('    {}'.format(tag_name))
+        print()
+        print('Input the new release version: ', end='')
         version = input().strip()
         find_version = re.findall(VERSION_REGEX, version)[0]
         if version != find_version:
             raise ValueError('{} is not a valid version format.'.format(find_version))
         print()
+        if 'release/{}/{}'.format(component, version) in tag_names:
+            raise ValueError('version {} is not unique.'.format(version))
 
         # get latest commit id
         latest_commit_id = get_latest_commit_id()
@@ -372,7 +387,7 @@ def command_prompt_step1(component_tags):
     return component, version
 
 
-def command_prompt_step2(component_tags, component):
+def command_prompt_step2(component_tags, select_component):
     """Prompt the Vim to edit the Markdown file.
     """
     # question
@@ -381,7 +396,7 @@ def command_prompt_step2(component_tags, component):
     # get the confirmation whether to open text editor
     open_vim = input().strip().lower()
     if open_vim not in ['y', 'n', 'yes', 'no']:
-        raise ValueError('Only "Y", "N", "Yes" and "NO" are allowed')
+        raise ValueError('Only "Y", "N", "Yes" and "No" are allowed')
 
     # check if there is any unstaged or untracked files
     cmd = ['git', 'ls-files', '--other', '--directory', '--exclude-standard']
@@ -409,25 +424,32 @@ def command_prompt_step2(component_tags, component):
 
             # Merge two tickets into one
             tickets = [{**github_tickets[i], **jira_tickets[i]} for i in range(len(fts))]
-            headers = ['Date', 'Summary', 'Assignee', 'Reporter', 'Priority', 'Status', 'Github', 'JIRA']
+            headers = ['Priority', 'Ticket', 'Summary', 'Assignee', 'Github', 'JIRA']
             rows = []
             for ticket in tickets:
-                rows.append([
-                    ticket['date'],
-                    ticket['title'],
-                    ticket['assignee_name'],
-                    ticket['reporter_name'],
-                    ticket['priority_name'],
-                    ticket['status_name'],
-                    '[{}]({}{})'.format(ticket['ft'], GITHUB_PULL_URL, ticket['pull_id']),
-                    '[{}]({}{})'.format(ticket['ft'], JIRA_TICKET_URL, ticket['ft']),
-                ])
+                row = [''] * 6
+                row[0] = ticket['priority_name']
+                row[1] = ticket['ft']
+                row[3] = ticket['assignee_name']
+                # if it is also in jira ticket, we ise the information form JIRA
+                if ticket['ft']:
+                    row[2] = ticket['summary']
+                    row[4] = '[{}]({}{})'.format('#' + ticket['pull_id'], GITHUB_PULL_URL, ticket['pull_id'])
+                else:
+                    row[2] = ticket['title']
+                    row[4] = '[{}]({}{})'.format('#' + ticket['commit_id'][:7], GITHUB_COMMIT_URL, ticket['commit_id'])
+                row[5] = '[{}]({}{})'.format(ticket['ft'], JIRA_TICKET_URL, ticket['ft'])
+                rows.append(row)
+
+            # release_date
+            release_date = tickets[0]['date'] if tickets else ''
 
             # concatenate the Markdown text
             if component not in component_text:
                 component_text[component] = ''
-            text = generate_markdown_text(tags[i]['tag_name'], headers, rows, tags[i])
+            text = generate_markdown_text(release_date, tags[i]['tag_name'], headers, rows, tags[i])
             component_text[component] += text
+        break
     print()
 
     # write text into the files
@@ -442,7 +464,7 @@ def command_prompt_step2(component_tags, component):
     if open_vim in ['y', 'yes']:
         editor = os.environ.get('EDITOR', 'vim')
         try:
-            cmd = [editor, COMPONENT_FILE_PATH.format(component)]
+            cmd = [editor, COMPONENT_FILE_PATH.format(select_component)]
             subprocess.check_call(cmd)
         except subprocess.CalledProcessError as e:
             raise IOError("{} exited with code {}.".format(editor, e.returncode))
@@ -530,7 +552,7 @@ def main():
     command_prompt_step2(component_tags, component)
 
     # step 3 & 4: commit the codes and push the codes
-    command_prompt_step3_step4(component_tags, component, version, remote, branch)
+    # command_prompt_step3_step4(component_tags, component, version, remote, branch)
 
 
 if __name__ == '__main__':
