@@ -1,24 +1,20 @@
 
 ## `release/hello/0.0.18` `2018-05-30`
 
-1. aaa
-2. bbb
-3. ccc
-
-
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.18||[#dc72bb4](https://github.com/Formlabs/factory-software/commit/dc72bb45fb90389051d9648839471f2f0dbf1a07)|[](https://formlabs.atlassian.net/browse/)|
 |||Release release/world/1.0.0||[#b7fc5e1](https://github.com/Formlabs/factory-software/commit/b7fc5e14148ab6bc4115d8c0137a0014437ef091)|[](https://formlabs.atlassian.net/browse/)|
 |||Release release/world/0.0.23||[#c99918c](https://github.com/Formlabs/factory-software/commit/c99918c6123a79073e5dee296e32e616eb709bd3)|[](https://formlabs.atlassian.net/browse/)|
 |||hh||[#8319bf7](https://github.com/Formlabs/factory-software/commit/8319bf781fd1f6e4d4a25c862fceb943b94988b2)|[](https://formlabs.atlassian.net/browse/)|
 
 Previous Release: `release/hello/0.0.17`
 
-[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/7777e40863ae8c125dbd5bf79c7817fd11bce917...baaeb46d406880fdc9d22604bd2d9ad75ed42d6c)
+[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/7777e40863ae8c125dbd5bf79c7817fd11bce917...dc72bb45fb90389051d9648839471f2f0dbf1a07)
 
 
 ```
->> git diff 7777e40863ae8c125dbd5bf79c7817fd11bce917 baaeb46d406880fdc9d22604bd2d9ad75ed42d6c
+>> git diff 7777e40863ae8c125dbd5bf79c7817fd11bce917 dc72bb45fb90389051d9648839471f2f0dbf1a07
 ```
 
 ## `release/hello/0.0.17` `2018-05-29`
