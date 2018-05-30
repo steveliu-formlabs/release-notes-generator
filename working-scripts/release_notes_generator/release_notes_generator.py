@@ -479,7 +479,7 @@ def command_prompt_step3_step4(component_tags, component, version, remote, branc
 
     if run_script in ['y', 'yes']:
         # add & commit & tag
-        cmd = ['git', 'add', ' '.join(fs)]
+        cmd = ['git', 'add', *fs]
         subprocess.check_output(cmd).decode('unicode_escape')
         cmd = ['git', 'commit', '-m', 'Release {}'.format(tag)]
         subprocess.check_output(cmd).decode('unicode_escape')
