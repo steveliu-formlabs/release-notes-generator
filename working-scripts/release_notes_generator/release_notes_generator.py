@@ -37,6 +37,7 @@ VERSION_REGEX = '(?:[0-9]+\.)+[0-9]+|$'
 
 # misc
 COMPONENT_FILE_PATH = 'components/{}/release-notes.md'
+TAG_NAME = 'release/{}/{}'
 
 
 def get_current_branch():
@@ -331,7 +332,7 @@ def command_prompt_step1(component_tags):
                 'tag_commit_id': first_commit_id
             },
             {
-                'tag_name': 'release/{}/{}'.format(component, version),
+                'tag_name': TAG_NAME.format(component, version),
                 'tag_commit_id': latest_commit_id,
                 'pre_tag_name': '',
                 'pre_tag_commit_id': first_commit_id,
@@ -354,7 +355,7 @@ def command_prompt_step1(component_tags):
         if version != find_version:
             raise ValueError('{} is not a valid version format.'.format(find_version))
         print()
-        if 'release/{}/{}'.format(component, version) in tag_names:
+        if TAG_NAME.format(component, version) in tag_names:
             raise ValueError('version {} is not unique.'.format(version))
 
         # get latest commit id
@@ -362,7 +363,7 @@ def command_prompt_step1(component_tags):
 
         # find the ancestor for this version
         component_tags[component].append({
-            'tag_name': 'release/{}/{}'.format(component, version),
+            'tag_name': TAG_NAME.format(component, version),
             'tag_commit_id': latest_commit_id
         })
         # inverted index for commit id & tag name
@@ -520,7 +521,7 @@ def command_prompt_step3_step4(component_tags, component, version, remote, branc
         subprocess.check_output(cmd).decode('unicode_escape')
 
     else:
-        # list the description
+        # question
         print('4. Please type the following commands to commit/tag/push the codes by yourself.')
         print()
         print('    >> git add {}'.format(' '.join(fs)))
