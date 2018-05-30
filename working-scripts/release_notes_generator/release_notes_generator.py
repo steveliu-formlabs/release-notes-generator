@@ -568,9 +568,8 @@ def main():
     # step 2: open editor and generate docs
     command_prompt_step2(component_tags, component)
 
-    # TODO un-comment
     # step 3 & 4: commit the codes and push the codes
-    # command_prompt_step3_step4(component_tags, component, version, remote, branch)
+    command_prompt_step3_step4(component_tags, component, version, remote, branch)
 
 
 if __name__ == '__main__':
