@@ -1,15 +1,31 @@
 
+## release/world/0.0.9
+
+| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
+|------|---------|----------|----------|----------|--------|--------|------|
+|2018-05-30|~~i|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
+
+__Previous Release:__ release/world/0.0.7
+
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/f890f9b04417485da4317c89696c1b21e9ac63fe...751d89df84fa3f0c44ccdf4de3e35c713cdcaad1)__
+
+```
+>> git diff f890f9b04417485da4317c89696c1b21e9ac63fe 751d89df84fa3f0c44ccdf4de3e35c713cdcaad1
+```
+
+
 ## release/world/0.0.7
 
 | Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
 |------|---------|----------|----------|----------|--------|--------|------|
+|2018-05-30|Release release/world/0.0.7|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
 
 __Previous Release:__ release/world/0.0.5
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/9c3a4a988c88e30fbb20819a0c4c5c717b3117af...759fce51370309d197d4a909ee4c9785946815ed)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/9c3a4a988c88e30fbb20819a0c4c5c717b3117af...f890f9b04417485da4317c89696c1b21e9ac63fe)__
 
 ```
->> git diff 9c3a4a988c88e30fbb20819a0c4c5c717b3117af 759fce51370309d197d4a909ee4c9785946815ed
+>> git diff 9c3a4a988c88e30fbb20819a0c4c5c717b3117af f890f9b04417485da4317c89696c1b21e9ac63fe
 ```
 
 
