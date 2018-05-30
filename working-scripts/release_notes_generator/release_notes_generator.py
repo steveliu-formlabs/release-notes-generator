@@ -391,10 +391,8 @@ def command_prompt_step2(component_tags):
         # if it exited successfully, return the contents of the file.
         with tempfile.NamedTemporaryFile() as f:
             f.close()
-            try:
-                subprocess.check_call([editor, f.name])
-            except subprocess.CalledProcessError as e:
-                raise IOError('{} exited with code {}.'.format(editor, e.returncode))
+            cmd = [editor, f.name]
+            subprocess.check_output(cmd).decode('unicode_escape')
             with open(f.name) as g:
                 print(g.read())
     else:
@@ -405,8 +403,8 @@ def command_prompt_step2(component_tags):
     out = subprocess.check_output(cmd).decode('unicode_escape')
     if out.strip():
         raise ValueError('You have untracked files. Please stage all the files.')
-    cmd = ['git', 'diff-index', '--quiet', 'HEAD', '--']
     try:
+        cmd = ['git', 'diff-index', '--quiet', 'HEAD', '--']
         subprocess.check_output(cmd).decode('unicode_escape')
     except subprocess.CalledProcessError:
         raise ValueError('You have uncommited files. Please commit all the changes.')
