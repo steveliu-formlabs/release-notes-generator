@@ -1,19 +1,30 @@
 
-## release/world/0.0.23
-
-1. The release for `release/world/0.0.23`
-2. Gogoooo
-
+## release/world/0.1.0
 
 | Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
 |------|---------|----------|----------|----------|--------|--------|------|
 
-Previous Release: __`release/world/0.0.22`__
+Previous Release: __`release/world/0.1.0`__
 
-[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/ce2479c231dd9ab53b50bc2e9afdd6bcae6ffcc4...4f3d35c30a9584da0de43a760ffb324aa439d088)
+[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/c99918c6123a79073e5dee296e32e616eb709bd3...c99918c6123a79073e5dee296e32e616eb709bd3)
 
 ```
->> git diff ce2479c231dd9ab53b50bc2e9afdd6bcae6ffcc4 4f3d35c30a9584da0de43a760ffb324aa439d088
+>> git diff c99918c6123a79073e5dee296e32e616eb709bd3 c99918c6123a79073e5dee296e32e616eb709bd3
+```
+
+
+## release/world/0.0.23
+
+| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
+|------|---------|----------|----------|----------|--------|--------|------|
+|2018-05-30|Release release/world/0.0.23|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
+
+Previous Release: __`release/world/0.0.22`__
+
+[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/ce2479c231dd9ab53b50bc2e9afdd6bcae6ffcc4...c99918c6123a79073e5dee296e32e616eb709bd3)
+
+```
+>> git diff ce2479c231dd9ab53b50bc2e9afdd6bcae6ffcc4 c99918c6123a79073e5dee296e32e616eb709bd3
 ```
 
 
