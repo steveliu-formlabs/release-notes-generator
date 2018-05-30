@@ -1,15 +1,21 @@
 
-## release/world/0.0.23
+## release/world/0.0.11
+
+ * This is an apple.
+ * ~~~~~~~~~~~~~~~~~~~
+
 
 | Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
 |------|---------|----------|----------|----------|--------|--------|------|
+|2018-05-30|rr|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
+|2018-05-30|pp|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
 
 __Previous Release:__ release/world/0.0.9
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/c413e03ba6d1646db7975dc1200f0a197ccb0786...15ce4f5bc5aea27384f5c5e51139852ab09729fb)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/c413e03ba6d1646db7975dc1200f0a197ccb0786...e1d843909f8629b2f5ac5a6267bfbcdef48caeb9)__
 
 ```
->> git diff c413e03ba6d1646db7975dc1200f0a197ccb0786 15ce4f5bc5aea27384f5c5e51139852ab09729fb
+>> git diff c413e03ba6d1646db7975dc1200f0a197ccb0786 e1d843909f8629b2f5ac5a6267bfbcdef48caeb9
 ```
 
 
