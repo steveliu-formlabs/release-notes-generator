@@ -435,9 +435,11 @@ def command_prompt_step2(component_tags, select_component):
                 tickets.insert(0, {
                     'date': datetime.datetime.now().strftime('%Y-%m-%d'),
                     'commit_id': '',
-                    'title': 'Release ' + tags[i]['tag_name'],
+                    'title': 'Release {}'.format(tags[i]['tag_name']),
                     'ft': '',
-                    'pull_id': ''
+                    'pull_id': '',
+                    'priority_name': '',
+                    'assignee_name': ''
                 })
 
             headers = ['Priority', 'Ticket', 'Summary', 'Assignee', 'Github', 'JIRA']
