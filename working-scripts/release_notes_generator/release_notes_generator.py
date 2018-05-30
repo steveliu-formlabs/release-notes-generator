@@ -257,9 +257,9 @@ def generate_markdown_text(title, headers, rows, tag):
         text += '\n'
     text += '\n'
     # previoud release tag
-    text += '__Previous Release:__ {}\n\n'.format(tag['pre_tag_name'])
+    text += 'Previous Release: __`{}`__\n\n'.format(tag['pre_tag_name'])
     # compare changes on Github
-    text += '__[Compare changes on Github]({}{}...{})__\n\n'.format(
+    text += '[Compare changes on Github]({}{}...{})\n\n'.format(
         GITHUB_CMP_URL, tag['pre_tag_commit_id'], tag['tag_commit_id'])
     # git commands
     text += """\
