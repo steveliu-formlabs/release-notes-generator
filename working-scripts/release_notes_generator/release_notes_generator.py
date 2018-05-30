@@ -465,8 +465,6 @@ def command_prompt_step2(component_tags, select_component):
                 component_text[component] = ''
             text = generate_markdown_text(release_date, tags[i]['tag_name'], headers, rows, tags[i])
             component_text[component] += text
-        # TODO remove break
-        break
     print()
 
     # write text into the files
