@@ -3,14 +3,15 @@
 
 | Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
 |------|---------|----------|----------|----------|--------|--------|------|
+|2018-05-30|hh|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
 |2018-05-29|Release release/hello/0.0.16|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
 
 __Previous Release:__ release/world/0.0.3
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/d2be8c43d8becb1fca1cf435664e2d8efdb73555...0b9a23296da5a99cf38846580008bffdec7694a7)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/d2be8c43d8becb1fca1cf435664e2d8efdb73555...8319bf781fd1f6e4d4a25c862fceb943b94988b2)__
 
 ```
->> git diff d2be8c43d8becb1fca1cf435664e2d8efdb73555 0b9a23296da5a99cf38846580008bffdec7694a7
+>> git diff d2be8c43d8becb1fca1cf435664e2d8efdb73555 8319bf781fd1f6e4d4a25c862fceb943b94988b2
 ```
 
 
