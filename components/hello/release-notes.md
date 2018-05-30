@@ -1,4 +1,21 @@
 
+## `release/hello/0.0.19` `2018-05-30`
+
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.19||[](https://github.com/Formlabs/factory-software/commit/)|[](https://formlabs.atlassian.net/browse/)|
+|||Release release/world/1.0.2||[c516345](https://github.com/Formlabs/factory-software/commit/c516345f22c7534c9ce1de0d38666308a86c08df)|[](https://formlabs.atlassian.net/browse/)|
+|||Release release/world/1.0.1||[c12cbae](https://github.com/Formlabs/factory-software/commit/c12cbaed31e3298f5ad2ca56bb7110547969df8d)|[](https://formlabs.atlassian.net/browse/)|
+
+Previous Release: `release/hello/0.0.18`
+
+[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/dc72bb45fb90389051d9648839471f2f0dbf1a07...f1c3d192f19da8b567f81b4ea6ea56c9f0c7b2e1)
+
+
+```
+>> git diff dc72bb45fb90389051d9648839471f2f0dbf1a07 f1c3d192f19da8b567f81b4ea6ea56c9f0c7b2e1
+```
+
 ## `release/hello/0.0.18` `2018-05-30`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
