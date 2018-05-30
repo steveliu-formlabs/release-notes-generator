@@ -4,6 +4,7 @@ import os
 import subprocess
 import requests
 import time
+import datetime
 
 
 # github
@@ -190,7 +191,7 @@ def fetch_jira_tickets(fts):
     """
     tickets = []
     for ft in fts:
-        # the commit is not belong to any JIRA ticket
+        # the commit is not belong to JIRA
         if not ft:
             tickets.append({
                 'summary': '',
@@ -235,16 +236,18 @@ def generate_markdown_text(release_date, title, headers, rows, tag):
 
     A Single Markdown Table:
 
-    ### title
+    # {component}
 
-    | header[0]  | header[1]  | header[2]  | header[3]  |
-    -----------------------------------------------------
-    | rows[0][0] | rows[0][1] | rows[0][2] | rows[0][3] |
-    | rows[1][0] | rows[1][1] | rows[1][2] | rows[1][3] |
-    | rows[2][0] | rows[2][1] | rows[2][2] | rows[2][3] |
-    | rows[3][0] | rows[3][1] | rows[3][2] | rows[3][3] |
+    ### {version} {release_date}
 
-    Previous Release:
+    | {headers[0]} | {headers[1]} | {headers[2]} | {headers[3]}  |
+    -----------------------------------------------------------------
+    | {rows[0][0]} | {rows[0][1]} | {rows[0][2]} | {rows[0][3]} |
+    | {rows[1][0]} | {rows[1][1]} | {rows[1][2]} | {rows[1][3]} |
+    | {rows[2][0]} | {rows[2][1]} | {rows[2][2]} | {rows[2][3]} |
+    | {rows[3][0]} | {rows[3][1]} | {rows[3][2]} | {rows[3][3]} |
+
+    Previous Release: {tag['pre_tag_name']}
 
     ```
         git diff xxxxx xxxx
@@ -414,17 +417,29 @@ def command_prompt_step2(component_tags, select_component):
     component_text = {}
     print()
     for component, tags in component_tags.items():
-        # Iterate the versions from latest to oldest
+        # iterate the versions from latest to oldest
         for i in range(len(tags) - 1, 0, -1):
             print('    "{}" release notes is generating...'.format(tags[i]['tag_name']))
 
-            # List all github/jira tickets between them
+            # list all github/jira tickets between them
             github_tickets = fetch_github_tickets(tags[i])
             fts = [ticket['ft'] for ticket in github_tickets]
             jira_tickets = fetch_jira_tickets(fts)
 
-            # Merge two tickets into one
+            # merge two tickets into one
             tickets = [{**github_tickets[i], **jira_tickets[i]} for i in range(len(fts))]
+
+            # add a dummy ticket since we always generate the documentation first and then
+            # commit the files.
+            if component == select_component and i == len(tags) - 1:
+                tickets.insert(0, {
+                    'date': datetime.datetime.now().strftime('%Y-%m-%d'),
+                    'commit_id': '',
+                    'title': 'Release ' + tags[i]['tag_name'],
+                    'ft': '',
+                    'pull_id': ''
+                })
+
             headers = ['Priority', 'Ticket', 'Summary', 'Assignee', 'Github', 'JIRA']
             rows = []
             for ticket in tickets:
@@ -438,7 +453,7 @@ def command_prompt_step2(component_tags, select_component):
                     row[4] = '[{}]({}{})'.format('#' + ticket['pull_id'], GITHUB_PULL_URL, ticket['pull_id'])
                 else:
                     row[2] = ticket['title']
-                    row[4] = '[{}]({}{})'.format('#' + ticket['commit_id'][:7], GITHUB_COMMIT_URL, ticket['commit_id'])
+                    row[4] = '[{}]({}{})'.format(ticket['commit_id'][:7], GITHUB_COMMIT_URL, ticket['commit_id'])
                 row[5] = '[{}]({}{})'.format(ticket['ft'], JIRA_TICKET_URL, ticket['ft'])
                 rows.append(row)
 
@@ -450,6 +465,7 @@ def command_prompt_step2(component_tags, select_component):
                 component_text[component] = ''
             text = generate_markdown_text(release_date, tags[i]['tag_name'], headers, rows, tags[i])
             component_text[component] += text
+        # TODO remove break
         break
     print()
 
@@ -474,7 +490,7 @@ def command_prompt_step2(component_tags, select_component):
 def command_prompt_step3_step4(component_tags, component, version, remote, branch):
     """Stage and commit all the documentations and then tag the commitment.
     """
-    tag = 'release/{}/{}'.format(component, version)
+    tag = TAG_NAME.format(component, version)
     fs = [COMPONENT_FILE_PATH.format(component) for component, _ in component_tags.items()]
 
     # question
@@ -552,8 +568,9 @@ def main():
     # step 2: open editor and generate docs
     command_prompt_step2(component_tags, component)
 
+    # TODO un-comment
     # step 3 & 4: commit the codes and push the codes
-    command_prompt_step3_step4(component_tags, component, version, remote, branch)
+    # command_prompt_step3_step4(component_tags, component, version, remote, branch)
 
 
 if __name__ == '__main__':
