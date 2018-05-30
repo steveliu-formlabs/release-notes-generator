@@ -443,7 +443,7 @@ def command_prompt_step2(component_tags, component):
         editor = os.environ.get('EDITOR', 'vim')
         try:
             cmd = [editor, COMPONENT_FILE_PATH.format(component)]
-            subprocess.check_output(cmd)
+            subprocess.check_call(cmd)
         except subprocess.CalledProcessError as e:
             raise IOError("{} exited with code {}.".format(editor, e.returncode))
 
