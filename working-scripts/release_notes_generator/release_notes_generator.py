@@ -523,9 +523,8 @@ def main():
     os.chdir(project_dir)
 
     # get branch name
-    branch = get_current_branch()
     remote = 'upstream'
-    print('0. Current branch is {} and current remote is {}.\n'.format(branch, remote))
+    branch = get_current_branch()
 
     # fetch release tags
     component_tags = fetch_github_release()
