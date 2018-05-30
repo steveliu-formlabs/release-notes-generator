@@ -1,261 +1,261 @@
 
-## release/hello/0.0.17
+## `release/hello/0.0.17` `2018-05-29`
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-|2018-05-29|Release release/hello/0.0.17|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.17||[#7777e40](https://github.com/Formlabs/factory-software/commit/7777e40863ae8c125dbd5bf79c7817fd11bce917)|[](https://formlabs.atlassian.net/browse/)|
 
-Previous Release: __`release/hello/0.0.16`__
+Previous Release: `release/hello/0.0.16`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/d0eb9ad6b4ad817661a3a68009ce7c454cfeb735...7777e40863ae8c125dbd5bf79c7817fd11bce917)
+
 
 ```
 >> git diff d0eb9ad6b4ad817661a3a68009ce7c454cfeb735 7777e40863ae8c125dbd5bf79c7817fd11bce917
 ```
 
+## `release/hello/0.0.16` `2018-05-29`
 
-## release/hello/0.0.16
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.16||[#d0eb9ad](https://github.com/Formlabs/factory-software/commit/d0eb9ad6b4ad817661a3a68009ce7c454cfeb735)|[](https://formlabs.atlassian.net/browse/)|
+|||sjcjc||[#a48866e](https://github.com/Formlabs/factory-software/commit/a48866e68b2a1475820e4e015be846dee1b78e0a)|[](https://formlabs.atlassian.net/browse/)|
+|||Release release/world/0.0.2||[#e098c77](https://github.com/Formlabs/factory-software/commit/e098c77427ce3677a8234072066c87cec94a8873)|[](https://formlabs.atlassian.net/browse/)|
+|||1234||[#6ddee8f](https://github.com/Formlabs/factory-software/commit/6ddee8f8667a4150e546414d97c8b19ca3a2eb19)|[](https://formlabs.atlassian.net/browse/)|
+|||hh||[#e43d2e7](https://github.com/Formlabs/factory-software/commit/e43d2e7e281aede0528314e17d09ea47db48c6ee)|[](https://formlabs.atlassian.net/browse/)|
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-|2018-05-29|Release release/hello/0.0.16|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-|2018-05-29|sjcjc|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-|2018-05-29|Release release/world/0.0.2|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-|2018-05-29|1234|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-|2018-05-29|hh|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-
-Previous Release: __`release/hello/0.0.15`__
+Previous Release: `release/hello/0.0.15`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/d8d32e14e9f72db4911fe5f09be5779004bbecb1...d0eb9ad6b4ad817661a3a68009ce7c454cfeb735)
+
 
 ```
 >> git diff d8d32e14e9f72db4911fe5f09be5779004bbecb1 d0eb9ad6b4ad817661a3a68009ce7c454cfeb735
 ```
 
+## `release/hello/0.0.15` `2018-05-29`
 
-## release/hello/0.0.15
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.15||[#d8d32e1](https://github.com/Formlabs/factory-software/commit/d8d32e14e9f72db4911fe5f09be5779004bbecb1)|[](https://formlabs.atlassian.net/browse/)|
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-|2018-05-29|Release release/hello/0.0.15|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-
-Previous Release: __`release/hello/0.0.14`__
+Previous Release: `release/hello/0.0.14`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/853c746907123ce42dc149bef83965fa09203018...d8d32e14e9f72db4911fe5f09be5779004bbecb1)
+
 
 ```
 >> git diff 853c746907123ce42dc149bef83965fa09203018 d8d32e14e9f72db4911fe5f09be5779004bbecb1
 ```
 
+## `release/hello/0.0.14` `2018-05-29`
 
-## release/hello/0.0.14
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.14||[#853c746](https://github.com/Formlabs/factory-software/commit/853c746907123ce42dc149bef83965fa09203018)|[](https://formlabs.atlassian.net/browse/)|
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-|2018-05-29|Release release/hello/0.0.14|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-
-Previous Release: __`release/hello/0.0.13`__
+Previous Release: `release/hello/0.0.13`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/7e4d8a30d3e6c0a5f2d48473d6c893d0a962a8c0...853c746907123ce42dc149bef83965fa09203018)
+
 
 ```
 >> git diff 7e4d8a30d3e6c0a5f2d48473d6c893d0a962a8c0 853c746907123ce42dc149bef83965fa09203018
 ```
 
+## `release/hello/0.0.13` `2018-05-29`
 
-## release/hello/0.0.13
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.13||[#7e4d8a3](https://github.com/Formlabs/factory-software/commit/7e4d8a30d3e6c0a5f2d48473d6c893d0a962a8c0)|[](https://formlabs.atlassian.net/browse/)|
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-|2018-05-29|Release release/hello/0.0.13|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-
-Previous Release: __`release/hello/0.0.12`__
+Previous Release: `release/hello/0.0.12`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/66ef215455607793851640bcd2592383e3998cf0...7e4d8a30d3e6c0a5f2d48473d6c893d0a962a8c0)
+
 
 ```
 >> git diff 66ef215455607793851640bcd2592383e3998cf0 7e4d8a30d3e6c0a5f2d48473d6c893d0a962a8c0
 ```
 
+## `release/hello/0.0.12` `2018-05-29`
 
-## release/hello/0.0.12
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.12||[#66ef215](https://github.com/Formlabs/factory-software/commit/66ef215455607793851640bcd2592383e3998cf0)|[](https://formlabs.atlassian.net/browse/)|
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-|2018-05-29|Release release/hello/0.0.12|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-
-Previous Release: __`release/hello/0.0.11`__
+Previous Release: `release/hello/0.0.11`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/043bb1ac2616c2424c42608adc7c316dc9e86879...66ef215455607793851640bcd2592383e3998cf0)
+
 
 ```
 >> git diff 043bb1ac2616c2424c42608adc7c316dc9e86879 66ef215455607793851640bcd2592383e3998cf0
 ```
 
+## `release/hello/0.0.11` `2018-05-29`
 
-## release/hello/0.0.11
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.11||[#043bb1a](https://github.com/Formlabs/factory-software/commit/043bb1ac2616c2424c42608adc7c316dc9e86879)|[](https://formlabs.atlassian.net/browse/)|
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-|2018-05-29|Release release/hello/0.0.11|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-
-Previous Release: __`release/hello/0.0.10`__
+Previous Release: `release/hello/0.0.10`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/9319d50ea7d7ae81cdbf6189b1a9d25352501136...043bb1ac2616c2424c42608adc7c316dc9e86879)
+
 
 ```
 >> git diff 9319d50ea7d7ae81cdbf6189b1a9d25352501136 043bb1ac2616c2424c42608adc7c316dc9e86879
 ```
 
+## `release/hello/0.0.10` `2018-05-29`
 
-## release/hello/0.0.10
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.10||[#9319d50](https://github.com/Formlabs/factory-software/commit/9319d50ea7d7ae81cdbf6189b1a9d25352501136)|[](https://formlabs.atlassian.net/browse/)|
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-|2018-05-29|Release release/hello/0.0.10|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-
-Previous Release: __`release/hello/0.0.9`__
+Previous Release: `release/hello/0.0.9`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/633d905986592e24be56df373ac0e325d3f6536b...9319d50ea7d7ae81cdbf6189b1a9d25352501136)
+
 
 ```
 >> git diff 633d905986592e24be56df373ac0e325d3f6536b 9319d50ea7d7ae81cdbf6189b1a9d25352501136
 ```
 
+## `release/hello/0.0.9` `2018-05-29`
 
-## release/hello/0.0.9
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.9||[#633d905](https://github.com/Formlabs/factory-software/commit/633d905986592e24be56df373ac0e325d3f6536b)|[](https://formlabs.atlassian.net/browse/)|
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-|2018-05-29|Release release/hello/0.0.9|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-
-Previous Release: __`release/hello/0.0.8`__
+Previous Release: `release/hello/0.0.8`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/23b959e9ca2d71143c68e40b81c4e969e6413f47...633d905986592e24be56df373ac0e325d3f6536b)
+
 
 ```
 >> git diff 23b959e9ca2d71143c68e40b81c4e969e6413f47 633d905986592e24be56df373ac0e325d3f6536b
 ```
 
+## `release/hello/0.0.8` `2018-05-29`
 
-## release/hello/0.0.8
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.8||[#23b959e](https://github.com/Formlabs/factory-software/commit/23b959e9ca2d71143c68e40b81c4e969e6413f47)|[](https://formlabs.atlassian.net/browse/)|
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-|2018-05-29|Release release/hello/0.0.8|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-
-Previous Release: __`release/hello/0.0.7`__
+Previous Release: `release/hello/0.0.7`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/36195428d797a7723eead6c68a1f04efb54cb94d...23b959e9ca2d71143c68e40b81c4e969e6413f47)
+
 
 ```
 >> git diff 36195428d797a7723eead6c68a1f04efb54cb94d 23b959e9ca2d71143c68e40b81c4e969e6413f47
 ```
 
+## `release/hello/0.0.7` `2018-05-29`
 
-## release/hello/0.0.7
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.7||[#3619542](https://github.com/Formlabs/factory-software/commit/36195428d797a7723eead6c68a1f04efb54cb94d)|[](https://formlabs.atlassian.net/browse/)|
+|||add text3.txt||[#7855e08](https://github.com/Formlabs/factory-software/commit/7855e085f44a926905952d526c0e840afde19229)|[](https://formlabs.atlassian.net/browse/)|
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-|2018-05-29|Release release/hello/0.0.7|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-|2018-05-29|add text3.txt|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-
-Previous Release: __`release/hello/0.0.6`__
+Previous Release: `release/hello/0.0.6`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/b02385584ca8983aa9b8be4cd708e5c0be24872a...36195428d797a7723eead6c68a1f04efb54cb94d)
+
 
 ```
 >> git diff b02385584ca8983aa9b8be4cd708e5c0be24872a 36195428d797a7723eead6c68a1f04efb54cb94d
 ```
 
+## `release/hello/0.0.6` `2018-05-29`
 
-## release/hello/0.0.6
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.6||[#b023855](https://github.com/Formlabs/factory-software/commit/b02385584ca8983aa9b8be4cd708e5c0be24872a)|[](https://formlabs.atlassian.net/browse/)|
+|||add text2.txt||[#349b2a8](https://github.com/Formlabs/factory-software/commit/349b2a86e245e1f22df80d6d8d7f63d4101155db)|[](https://formlabs.atlassian.net/browse/)|
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-|2018-05-29|Release release/hello/0.0.6|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-|2018-05-29|add text2.txt|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-
-Previous Release: __`release/hello/0.0.5`__
+Previous Release: `release/hello/0.0.5`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/4c722e62666a7d841077393da886933dd00674d6...b02385584ca8983aa9b8be4cd708e5c0be24872a)
+
 
 ```
 >> git diff 4c722e62666a7d841077393da886933dd00674d6 b02385584ca8983aa9b8be4cd708e5c0be24872a
 ```
 
+## `release/hello/0.0.5` `2018-05-29`
 
-## release/hello/0.0.5
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.5||[#4c722e6](https://github.com/Formlabs/factory-software/commit/4c722e62666a7d841077393da886933dd00674d6)|[](https://formlabs.atlassian.net/browse/)|
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-|2018-05-29|Release release/hello/0.0.5|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-
-Previous Release: __`release/hello/0.0.3`__
+Previous Release: `release/hello/0.0.3`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/4036a3d534f6bac1291fa700ace612466b6429ea...4c722e62666a7d841077393da886933dd00674d6)
+
 
 ```
 >> git diff 4036a3d534f6bac1291fa700ace612466b6429ea 4c722e62666a7d841077393da886933dd00674d6
 ```
 
+## `release/hello/0.0.4` `2018-05-29`
 
-## release/hello/0.0.4
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.4||[#d42dd91](https://github.com/Formlabs/factory-software/commit/d42dd91fe4fa0d89ba107ad98e913ae6b458f601)|[](https://formlabs.atlassian.net/browse/)|
+|||add text1.txt||[#344a978](https://github.com/Formlabs/factory-software/commit/344a978e6a202a4c008f23a705fdecb01eb03fec)|[](https://formlabs.atlassian.net/browse/)|
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-|2018-05-29|Release release/hello/0.0.4|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-|2018-05-29|add text1.txt|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-
-Previous Release: __`release/hello/0.0.3`__
+Previous Release: `release/hello/0.0.3`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/4036a3d534f6bac1291fa700ace612466b6429ea...d42dd91fe4fa0d89ba107ad98e913ae6b458f601)
+
 
 ```
 >> git diff 4036a3d534f6bac1291fa700ace612466b6429ea d42dd91fe4fa0d89ba107ad98e913ae6b458f601
 ```
 
+## `release/hello/0.0.3` `2018-05-29`
 
-## release/hello/0.0.3
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.3||[#4036a3d](https://github.com/Formlabs/factory-software/commit/4036a3d534f6bac1291fa700ace612466b6429ea)|[](https://formlabs.atlassian.net/browse/)|
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-|2018-05-29|Release release/hello/0.0.3|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-
-Previous Release: __`release/hello/0.0.2`__
+Previous Release: `release/hello/0.0.2`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/11a740405b737bef375b556a6c24b8278a549dc2...4036a3d534f6bac1291fa700ace612466b6429ea)
+
 
 ```
 >> git diff 11a740405b737bef375b556a6c24b8278a549dc2 4036a3d534f6bac1291fa700ace612466b6429ea
 ```
 
+## `release/hello/0.0.2` `2018-05-29`
 
-## release/hello/0.0.2
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.2||[#11a7404](https://github.com/Formlabs/factory-software/commit/11a740405b737bef375b556a6c24b8278a549dc2)|[](https://formlabs.atlassian.net/browse/)|
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-|2018-05-29|Release release/hello/0.0.2|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
-
-Previous Release: __`release/hello/0.0.1`__
+Previous Release: `release/hello/0.0.1`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/9bec4c57b339540418c21430b2151e07639c4076...11a740405b737bef375b556a6c24b8278a549dc2)
+
 
 ```
 >> git diff 9bec4c57b339540418c21430b2151e07639c4076 11a740405b737bef375b556a6c24b8278a549dc2
 ```
 
+## `release/hello/0.0.1` ``
 
-## release/hello/0.0.1
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
 
-| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
-|------|---------|----------|----------|----------|--------|--------|------|
-
-Previous Release: __`release/hello/0.0.1`__
+Previous Release: `release/hello/0.0.1`
 
 [Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/9bec4c57b339540418c21430b2151e07639c4076...9bec4c57b339540418c21430b2151e07639c4076)
+
 
 ```
 >> git diff 9bec4c57b339540418c21430b2151e07639c4076 9bec4c57b339540418c21430b2151e07639c4076
 ```
-
