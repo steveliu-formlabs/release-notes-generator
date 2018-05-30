@@ -1,17 +1,32 @@
 
+## release/world/0.0.7
+
+| Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
+|------|---------|----------|----------|----------|--------|--------|------|
+
+__Previous Release:__ release/world/0.0.5
+
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/9c3a4a988c88e30fbb20819a0c4c5c717b3117af...759fce51370309d197d4a909ee4c9785946815ed)__
+
+```
+>> git diff 9c3a4a988c88e30fbb20819a0c4c5c717b3117af 759fce51370309d197d4a909ee4c9785946815ed
+```
+
+
 ## release/world/0.0.5
 
 | Date | Summary | Assignee | Reporter | Priority | Status | Github | JIRA |
 |------|---------|----------|----------|----------|--------|--------|------|
+|2018-05-30|Release release/world/0.0.5|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
 |2018-05-30|hh|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
 |2018-05-29|Release release/hello/0.0.16|||||[](https://github.com/Formlabs/factory-software/pull/)|[](https://formlabs.atlassian.net/browse/)|
 
 __Previous Release:__ release/world/0.0.3
 
-__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/d2be8c43d8becb1fca1cf435664e2d8efdb73555...8319bf781fd1f6e4d4a25c862fceb943b94988b2)__
+__[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/d2be8c43d8becb1fca1cf435664e2d8efdb73555...9c3a4a988c88e30fbb20819a0c4c5c717b3117af)__
 
 ```
->> git diff d2be8c43d8becb1fca1cf435664e2d8efdb73555 8319bf781fd1f6e4d4a25c862fceb943b94988b2
+>> git diff d2be8c43d8becb1fca1cf435664e2d8efdb73555 9c3a4a988c88e30fbb20819a0c4c5c717b3117af
 ```
 
 
