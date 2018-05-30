@@ -372,7 +372,7 @@ def command_prompt_step1(component_tags):
     return component, version
 
 
-def command_prompt_step2(component_tags):
+def command_prompt_step2(component_tags, component):
     """Prompt the Vim to edit the Markdown file.
     """
     # question
@@ -382,21 +382,6 @@ def command_prompt_step2(component_tags):
     open_vim = input().strip().lower()
     if open_vim not in ['y', 'n', 'yes', 'no']:
         raise ValueError('Only "Y", "N", "Yes" and "NO" are allowed')
-
-    # TODO: how to integrate into MD?
-    if open_vim in ['y', 'yes']:
-        editor = os.environ.get('EDITOR', 'vim')
-
-        # Launch editor on an empty temporary file, wait for it to exit, and
-        # if it exited successfully, return the contents of the file.
-        with tempfile.NamedTemporaryFile() as f:
-            f.close()
-            cmd = [editor, f.name]
-            subprocess.check_output(cmd).decode('unicode_escape')
-            with open(f.name) as g:
-                print(g.read())
-    else:
-        pass
 
     # check if there is any unstaged or untracked files
     cmd = ['git', 'ls-files', '--other', '--directory', '--exclude-standard']
@@ -452,6 +437,15 @@ def command_prompt_step2(component_tags):
         with open(f_path, 'w') as f:
             f.write(text)
     print()
+
+    # launch an editor, wait for it to exit
+    if open_vim in ['y', 'yes']:
+        editor = os.environ.get('EDITOR', 'vim')
+        try:
+            cmd = [editor, COMPONENT_FILE_PATH.format(component)]
+            subprocess.check_output(cmd)
+        except subprocess.CalledProcessError as e:
+            raise IOError("{} exited with code {}.".format(editor, e.returncode))
 
 
 def command_prompt_step3_step4(component_tags, component, version, remote, branch):
@@ -533,7 +527,7 @@ def main():
     component, version = command_prompt_step1(component_tags)
 
     # step 2: open editor and generate docs
-    command_prompt_step2(component_tags)
+    command_prompt_step2(component_tags, component)
 
     # step 3 & 4: commit the codes and push the codes
     command_prompt_step3_step4(component_tags, component, version, remote, branch)
