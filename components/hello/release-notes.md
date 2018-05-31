@@ -1,20 +1,36 @@
 # [hello](https://github.com/Formlabs/factory-software/tree/master/components/hello)
 
 
+## `0.1.1` `2018-05-31`
+
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.1.1||[](https://github.com/Formlabs/factory-software/commit/)|[](https://formlabs.atlassian.net/browse/)|
+|||add text 8||[e6aa84c](https://github.com/Formlabs/factory-software/commit/e6aa84c80d20ed17d4e96649d68812baf6adb7bf)|[](https://formlabs.atlassian.net/browse/)|
+
+Previous Release: `release/hello/0.1.0`
+
+[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/49e8d83e89e36052ae9a62804ac1b0f74978821d...e6aa84c80d20ed17d4e96649d68812baf6adb7bf)
+
+
+```
+>> git diff 49e8d83e89e36052ae9a62804ac1b0f74978821d e6aa84c80d20ed17d4e96649d68812baf6adb7bf
+```
+
 ## `0.1.0` `2018-05-31`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
-|||Release release/hello/0.1.0||[](https://github.com/Formlabs/factory-software/commit/)|[](https://formlabs.atlassian.net/browse/)|
+|||Release release/hello/0.1.0||[49e8d83](https://github.com/Formlabs/factory-software/commit/49e8d83e89e36052ae9a62804ac1b0f74978821d)|[](https://formlabs.atlassian.net/browse/)|
 |||add text7||[aba4381](https://github.com/Formlabs/factory-software/commit/aba4381b5bad58cf3c6c370b874b2fe5e9f72c8a)|[](https://formlabs.atlassian.net/browse/)|
 
 Previous Release: `release/hello/0.0.19`
 
-[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/bbe866d1178e70276970d39d26e1701971ff0899...aba4381b5bad58cf3c6c370b874b2fe5e9f72c8a)
+[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/bbe866d1178e70276970d39d26e1701971ff0899...49e8d83e89e36052ae9a62804ac1b0f74978821d)
 
 
 ```
->> git diff bbe866d1178e70276970d39d26e1701971ff0899 aba4381b5bad58cf3c6c370b874b2fe5e9f72c8a
+>> git diff bbe866d1178e70276970d39d26e1701971ff0899 49e8d83e89e36052ae9a62804ac1b0f74978821d
 ```
 
 ## `0.0.19` `2018-05-30`
