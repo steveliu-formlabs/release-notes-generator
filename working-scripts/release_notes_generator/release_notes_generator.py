@@ -11,6 +11,7 @@ import datetime
 GITHUB_COMMIT_URL = 'https://github.com/Formlabs/factory-software/commit/'
 GITHUB_PULL_URL = 'https://github.com/Formlabs/factory-software/pull/'
 GITHUB_CMP_URL = 'https://github.com/steveliu-formlabs/release-notes-generator/compare/'
+GITHUB_COMPONENT_URL = 'https://github.com/Formlabs/factory-software/tree/master/components/'
 
 # jira
 #
@@ -260,8 +261,8 @@ def generate_markdown_text(release_date, title, headers, rows, tag):
             raise ValueError('In Markdown table, we expect the length of row is equal to the headers.')
 
     text = '\n'
-    # table title
-    text += '## `{}` `{}`\n\n'.format(title, release_date)
+    # table version & date
+    text += '## `{}` `{}`\n\n'.format(tag['tag_name'].split('/')[-1], release_date)
     # table header
     text += '| {} |\n'.format(' | '.join(headers))
     # table separator
@@ -364,7 +365,7 @@ def command_prompt_step1(component_tags):
         # get latest commit id
         latest_commit_id = get_latest_commit_id()
 
-        # find the ancestor for this version
+        # find the latest commit id for this version
         component_tags[component].append({
             'tag_name': TAG_NAME.format(component, version),
             'tag_commit_id': latest_commit_id
@@ -464,7 +465,7 @@ def command_prompt_step2(component_tags, select_component):
 
             # concatenate the Markdown text
             if component not in component_text:
-                component_text[component] = ''
+                component_text[component] = '# [{}]({})\n\n'.format(component, GITHUB_COMPONENT_URL + component)
             text = generate_markdown_text(release_date, tags[i]['tag_name'], headers, rows, tags[i])
             component_text[component] += text
     print()
