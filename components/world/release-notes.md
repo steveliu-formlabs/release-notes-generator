@@ -1,6 +1,24 @@
 # [world](https://github.com/Formlabs/factory-software/tree/master/components/world)
 
 
+## `1.1.0` `2018-05-31`
+
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/world/1.1.0||[](https://github.com/Formlabs/factory-software/commit/)|[](https://formlabs.atlassian.net/browse/)|
+|||add text9.txt||[98189c8](https://github.com/Formlabs/factory-software/commit/98189c8a084ddf748df0ba0c18196188582f0437)|[](https://formlabs.atlassian.net/browse/)|
+|||Release release/hello/0.1.0||[49e8d83](https://github.com/Formlabs/factory-software/commit/49e8d83e89e36052ae9a62804ac1b0f74978821d)|[](https://formlabs.atlassian.net/browse/)|
+|||Release release/hello/0.0.19||[bbe866d](https://github.com/Formlabs/factory-software/commit/bbe866d1178e70276970d39d26e1701971ff0899)|[](https://formlabs.atlassian.net/browse/)|
+
+Previous Release: `release/world/1.0.2`
+
+[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/c516345f22c7534c9ce1de0d38666308a86c08df...98189c8a084ddf748df0ba0c18196188582f0437)
+
+
+```
+>> git diff c516345f22c7534c9ce1de0d38666308a86c08df 98189c8a084ddf748df0ba0c18196188582f0437
+```
+
 ## `1.0.2` ``
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
