@@ -1,22 +1,40 @@
+# [hello](https://github.com/Formlabs/factory-software/tree/master/components/hello)
 
-## `release/hello/0.0.19` `2018-05-30`
+
+## `0.1.0` `2018-05-31`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
-|||Release release/hello/0.0.19||[](https://github.com/Formlabs/factory-software/commit/)|[](https://formlabs.atlassian.net/browse/)|
+|||Release release/hello/0.1.0||[](https://github.com/Formlabs/factory-software/commit/)|[](https://formlabs.atlassian.net/browse/)|
+|||add text7||[aba4381](https://github.com/Formlabs/factory-software/commit/aba4381b5bad58cf3c6c370b874b2fe5e9f72c8a)|[](https://formlabs.atlassian.net/browse/)|
+
+Previous Release: `release/hello/0.0.19`
+
+[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/bbe866d1178e70276970d39d26e1701971ff0899...aba4381b5bad58cf3c6c370b874b2fe5e9f72c8a)
+
+
+```
+>> git diff bbe866d1178e70276970d39d26e1701971ff0899 aba4381b5bad58cf3c6c370b874b2fe5e9f72c8a
+```
+
+## `0.0.19` `2018-05-30`
+
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/hello/0.0.19||[bbe866d](https://github.com/Formlabs/factory-software/commit/bbe866d1178e70276970d39d26e1701971ff0899)|[](https://formlabs.atlassian.net/browse/)|
 |||Release release/world/1.0.2||[c516345](https://github.com/Formlabs/factory-software/commit/c516345f22c7534c9ce1de0d38666308a86c08df)|[](https://formlabs.atlassian.net/browse/)|
 |||Release release/world/1.0.1||[c12cbae](https://github.com/Formlabs/factory-software/commit/c12cbaed31e3298f5ad2ca56bb7110547969df8d)|[](https://formlabs.atlassian.net/browse/)|
 
 Previous Release: `release/hello/0.0.18`
 
-[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/dc72bb45fb90389051d9648839471f2f0dbf1a07...f1c3d192f19da8b567f81b4ea6ea56c9f0c7b2e1)
+[Compare changes on Github](https://github.com/steveliu-formlabs/release-notes-generator/compare/dc72bb45fb90389051d9648839471f2f0dbf1a07...bbe866d1178e70276970d39d26e1701971ff0899)
 
 
 ```
->> git diff dc72bb45fb90389051d9648839471f2f0dbf1a07 f1c3d192f19da8b567f81b4ea6ea56c9f0c7b2e1
+>> git diff dc72bb45fb90389051d9648839471f2f0dbf1a07 bbe866d1178e70276970d39d26e1701971ff0899
 ```
 
-## `release/hello/0.0.18` `2018-05-30`
+## `0.0.18` `2018-05-30`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -34,7 +52,7 @@ Previous Release: `release/hello/0.0.17`
 >> git diff 7777e40863ae8c125dbd5bf79c7817fd11bce917 dc72bb45fb90389051d9648839471f2f0dbf1a07
 ```
 
-## `release/hello/0.0.17` `2018-05-29`
+## `0.0.17` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -49,7 +67,7 @@ Previous Release: `release/hello/0.0.16`
 >> git diff d0eb9ad6b4ad817661a3a68009ce7c454cfeb735 7777e40863ae8c125dbd5bf79c7817fd11bce917
 ```
 
-## `release/hello/0.0.16` `2018-05-29`
+## `0.0.16` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -68,7 +86,7 @@ Previous Release: `release/hello/0.0.15`
 >> git diff d8d32e14e9f72db4911fe5f09be5779004bbecb1 d0eb9ad6b4ad817661a3a68009ce7c454cfeb735
 ```
 
-## `release/hello/0.0.15` `2018-05-29`
+## `0.0.15` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -83,7 +101,7 @@ Previous Release: `release/hello/0.0.14`
 >> git diff 853c746907123ce42dc149bef83965fa09203018 d8d32e14e9f72db4911fe5f09be5779004bbecb1
 ```
 
-## `release/hello/0.0.14` `2018-05-29`
+## `0.0.14` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -98,7 +116,7 @@ Previous Release: `release/hello/0.0.13`
 >> git diff 7e4d8a30d3e6c0a5f2d48473d6c893d0a962a8c0 853c746907123ce42dc149bef83965fa09203018
 ```
 
-## `release/hello/0.0.13` `2018-05-29`
+## `0.0.13` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -113,7 +131,7 @@ Previous Release: `release/hello/0.0.12`
 >> git diff 66ef215455607793851640bcd2592383e3998cf0 7e4d8a30d3e6c0a5f2d48473d6c893d0a962a8c0
 ```
 
-## `release/hello/0.0.12` `2018-05-29`
+## `0.0.12` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -128,7 +146,7 @@ Previous Release: `release/hello/0.0.11`
 >> git diff 043bb1ac2616c2424c42608adc7c316dc9e86879 66ef215455607793851640bcd2592383e3998cf0
 ```
 
-## `release/hello/0.0.11` `2018-05-29`
+## `0.0.11` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -143,7 +161,7 @@ Previous Release: `release/hello/0.0.10`
 >> git diff 9319d50ea7d7ae81cdbf6189b1a9d25352501136 043bb1ac2616c2424c42608adc7c316dc9e86879
 ```
 
-## `release/hello/0.0.10` `2018-05-29`
+## `0.0.10` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -158,7 +176,7 @@ Previous Release: `release/hello/0.0.9`
 >> git diff 633d905986592e24be56df373ac0e325d3f6536b 9319d50ea7d7ae81cdbf6189b1a9d25352501136
 ```
 
-## `release/hello/0.0.9` `2018-05-29`
+## `0.0.9` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -173,7 +191,7 @@ Previous Release: `release/hello/0.0.8`
 >> git diff 23b959e9ca2d71143c68e40b81c4e969e6413f47 633d905986592e24be56df373ac0e325d3f6536b
 ```
 
-## `release/hello/0.0.8` `2018-05-29`
+## `0.0.8` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -188,7 +206,7 @@ Previous Release: `release/hello/0.0.7`
 >> git diff 36195428d797a7723eead6c68a1f04efb54cb94d 23b959e9ca2d71143c68e40b81c4e969e6413f47
 ```
 
-## `release/hello/0.0.7` `2018-05-29`
+## `0.0.7` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -204,7 +222,7 @@ Previous Release: `release/hello/0.0.6`
 >> git diff b02385584ca8983aa9b8be4cd708e5c0be24872a 36195428d797a7723eead6c68a1f04efb54cb94d
 ```
 
-## `release/hello/0.0.6` `2018-05-29`
+## `0.0.6` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -220,7 +238,7 @@ Previous Release: `release/hello/0.0.5`
 >> git diff 4c722e62666a7d841077393da886933dd00674d6 b02385584ca8983aa9b8be4cd708e5c0be24872a
 ```
 
-## `release/hello/0.0.5` `2018-05-29`
+## `0.0.5` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -235,7 +253,7 @@ Previous Release: `release/hello/0.0.3`
 >> git diff 4036a3d534f6bac1291fa700ace612466b6429ea 4c722e62666a7d841077393da886933dd00674d6
 ```
 
-## `release/hello/0.0.4` `2018-05-29`
+## `0.0.4` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -251,7 +269,7 @@ Previous Release: `release/hello/0.0.3`
 >> git diff 4036a3d534f6bac1291fa700ace612466b6429ea d42dd91fe4fa0d89ba107ad98e913ae6b458f601
 ```
 
-## `release/hello/0.0.3` `2018-05-29`
+## `0.0.3` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -266,7 +284,7 @@ Previous Release: `release/hello/0.0.2`
 >> git diff 11a740405b737bef375b556a6c24b8278a549dc2 4036a3d534f6bac1291fa700ace612466b6429ea
 ```
 
-## `release/hello/0.0.2` `2018-05-29`
+## `0.0.2` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -281,7 +299,7 @@ Previous Release: `release/hello/0.0.1`
 >> git diff 9bec4c57b339540418c21430b2151e07639c4076 11a740405b737bef375b556a6c24b8278a549dc2
 ```
 
-## `release/hello/0.0.1` ``
+## `0.0.1` ``
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|

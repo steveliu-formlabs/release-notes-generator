@@ -1,5 +1,7 @@
+# [world](https://github.com/Formlabs/factory-software/tree/master/components/world)
 
-## `release/world/1.0.2` ``
+
+## `1.0.2` ``
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -13,7 +15,7 @@ Previous Release: `release/world/1.0.1`
 >> git diff c12cbaed31e3298f5ad2ca56bb7110547969df8d c516345f22c7534c9ce1de0d38666308a86c08df
 ```
 
-## `release/world/1.0.1` `2018-05-30`
+## `1.0.1` `2018-05-30`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -28,7 +30,7 @@ Previous Release: `release/world/1.0.0`
 >> git diff b7fc5e14148ab6bc4115d8c0137a0014437ef091 c12cbaed31e3298f5ad2ca56bb7110547969df8d
 ```
 
-## `release/world/1.0.0` ``
+## `1.0.0` ``
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -42,7 +44,7 @@ Previous Release: `release/world/0.1.0`
 >> git diff 851f7df8290b7298b942cfafa7bdc4dd9c41eb68 b7fc5e14148ab6bc4115d8c0137a0014437ef091
 ```
 
-## `release/world/0.1.0` `2018-05-30`
+## `0.1.0` `2018-05-30`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -57,7 +59,7 @@ Previous Release: `release/world/0.0.23`
 >> git diff c99918c6123a79073e5dee296e32e616eb709bd3 851f7df8290b7298b942cfafa7bdc4dd9c41eb68
 ```
 
-## `release/world/0.0.23` `2018-05-30`
+## `0.0.23` `2018-05-30`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -72,7 +74,7 @@ Previous Release: `release/world/0.0.22`
 >> git diff ce2479c231dd9ab53b50bc2e9afdd6bcae6ffcc4 c99918c6123a79073e5dee296e32e616eb709bd3
 ```
 
-## `release/world/0.0.22` `2018-05-30`
+## `0.0.22` `2018-05-30`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -87,7 +89,7 @@ Previous Release: `release/world/0.0.11`
 >> git diff 01e0159870583d155556563aec4d9bfd9bd58125 ce2479c231dd9ab53b50bc2e9afdd6bcae6ffcc4
 ```
 
-## `release/world/0.0.11` `2018-05-30`
+## `0.0.11` `2018-05-30`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -104,7 +106,7 @@ Previous Release: `release/world/0.0.9`
 >> git diff c413e03ba6d1646db7975dc1200f0a197ccb0786 01e0159870583d155556563aec4d9bfd9bd58125
 ```
 
-## `release/world/0.0.9` `2018-05-30`
+## `0.0.9` `2018-05-30`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -120,7 +122,7 @@ Previous Release: `release/world/0.0.7`
 >> git diff f890f9b04417485da4317c89696c1b21e9ac63fe c413e03ba6d1646db7975dc1200f0a197ccb0786
 ```
 
-## `release/world/0.0.7` `2018-05-30`
+## `0.0.7` `2018-05-30`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -135,7 +137,7 @@ Previous Release: `release/world/0.0.5`
 >> git diff 9c3a4a988c88e30fbb20819a0c4c5c717b3117af f890f9b04417485da4317c89696c1b21e9ac63fe
 ```
 
-## `release/world/0.0.5` `2018-05-30`
+## `0.0.5` `2018-05-30`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -152,7 +154,7 @@ Previous Release: `release/world/0.0.3`
 >> git diff d2be8c43d8becb1fca1cf435664e2d8efdb73555 9c3a4a988c88e30fbb20819a0c4c5c717b3117af
 ```
 
-## `release/world/0.0.3` `2018-05-29`
+## `0.0.3` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -167,7 +169,7 @@ Previous Release: `release/world/0.0.4`
 >> git diff e2f4c1f396884e38416291f2e9b476e220f884a4 d2be8c43d8becb1fca1cf435664e2d8efdb73555
 ```
 
-## `release/world/0.0.4` `2018-05-29`
+## `0.0.4` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -183,7 +185,7 @@ Previous Release: `release/world/0.0.2`
 >> git diff e098c77427ce3677a8234072066c87cec94a8873 e2f4c1f396884e38416291f2e9b476e220f884a4
 ```
 
-## `release/world/0.0.2` `2018-05-29`
+## `0.0.2` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
@@ -200,7 +202,7 @@ Previous Release: `release/world/0.0.1`
 >> git diff cd7e920286bdc0a8936bc4b6ddef3b0b4660cae8 e098c77427ce3677a8234072066c87cec94a8873
 ```
 
-## `release/world/0.0.1` `2018-05-29`
+## `0.0.1` `2018-05-29`
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
