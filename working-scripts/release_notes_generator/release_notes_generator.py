@@ -1,11 +1,12 @@
 #!/usr/bin/python3
+
 import re
 import os
 import subprocess
 import requests
 import time
 import datetime
-
+import argparse
 
 # github
 GITHUB_COMMIT_URL = 'https://github.com/Formlabs/factory-software/commit/'
@@ -392,7 +393,7 @@ def command_prompt_step1(component_tags):
     return component, version
 
 
-def command_prompt_step2(component_tags, select_component):
+def command_prompt_step2(component_tags, select_component, gen_all_docs):
     """Prompt the Vim to edit the Markdown file.
     """
     # question
@@ -418,6 +419,10 @@ def command_prompt_step2(component_tags, select_component):
     component_text = {}
     print()
     for component, tags in component_tags.items():
+        # we skip components if gen_all_docs is false
+        if not gen_all_docs and component != select_component:
+            continue
+
         # iterate the versions from latest to oldest
         for i in range(len(tags) - 1, 0, -1):
             print('    "{}" release notes is generating...'.format(tags[i]['tag_name']))
@@ -431,7 +436,7 @@ def command_prompt_step2(component_tags, select_component):
             tickets = [{**github_tickets[i], **jira_tickets[i]} for i in range(len(fts))]
 
             # add a dummy ticket since we always generate the documentation first and then
-            # commit the files.
+            # commit the doc files.
             if component == select_component and i == len(tags) - 1:
                 tickets.insert(0, {
                     'date': datetime.datetime.now().strftime('%Y-%m-%d'),
@@ -443,6 +448,7 @@ def command_prompt_step2(component_tags, select_component):
                     'assignee_name': ''
                 })
 
+            # build data rows to generate markdown file
             headers = ['Priority', 'Ticket', 'Summary', 'Assignee', 'Github', 'JIRA']
             rows = []
             for ticket in tickets:
@@ -488,11 +494,14 @@ def command_prompt_step2(component_tags, select_component):
             raise IOError("{} exited with code {}.".format(editor, e.returncode))
 
 
-def command_prompt_step3_step4(component_tags, component, version, remote, branch):
+def command_prompt_step3_step4(component_tags, select_component, select_version, remote, branch, gen_all_docs):
     """Stage and commit all the documentations and then tag the commitment.
     """
-    tag = TAG_NAME.format(component, version)
-    fs = [COMPONENT_FILE_PATH.format(component) for component, _ in component_tags.items()]
+    tag = TAG_NAME.format(select_component, select_version)
+    if gen_all_docs:
+        fs = [COMPONENT_FILE_PATH.format(component) for component, _ in component_tags.items()]
+    else:
+        fs = [COMPONENT_FILE_PATH.format(select_component)]
 
     # question
     print('3. The release script is going to run the following COMMIT and TAG commands.')
@@ -550,11 +559,20 @@ def command_prompt_step3_step4(component_tags, component, version, remote, branc
 
 
 def main():
-    # change work directory
+    # get current file abs position
     cur_dir = os.path.dirname(os.path.abspath(__file__))
+
     # use the `os.sep` concatenate ['', 'a', 'b', 'c'] to /a/b/c
     project_dir = os.sep.join(cur_dir.split(os.sep)[:-2])
+
+    # change work directory
     os.chdir(project_dir)
+
+    # parse command line args
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-a', '--all', help='generate documentations for all components', action='store_true')
+    args = parser.parse_args()
+    gen_all_docs = args.all
 
     # get branch name
     remote = 'upstream'
@@ -564,13 +582,13 @@ def main():
     component_tags = fetch_github_release()
 
     # step 1: choose component
-    component, version = command_prompt_step1(component_tags)
+    select_component, select_version = command_prompt_step1(component_tags)
 
     # step 2: open editor and generate docs
-    command_prompt_step2(component_tags, component)
+    command_prompt_step2(component_tags, select_component, gen_all_docs)
 
     # step 3 & 4: commit the codes and push the codes
-    command_prompt_step3_step4(component_tags, component, version, remote, branch)
+    command_prompt_step3_step4(component_tags, select_component, select_version, remote, branch, gen_all_docs)
 
 
 if __name__ == '__main__':
