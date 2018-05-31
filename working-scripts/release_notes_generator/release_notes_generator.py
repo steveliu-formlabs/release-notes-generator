@@ -8,6 +8,7 @@ import time
 import datetime
 import argparse
 
+
 # github
 GITHUB_COMMIT_URL = 'https://github.com/Formlabs/factory-software/commit/'
 GITHUB_PULL_URL = 'https://github.com/Formlabs/factory-software/pull/'
@@ -540,12 +541,19 @@ def command_prompt_step3_step4(component_tags, select_component, select_version,
         if run_script not in ['y', 'n', 'yes', 'no']:
             raise ValueError('Only "Y", "N", "Yes" and "No" are allowed')
 
-        # add & commit & tag
-        cmd = ['git', 'push', remote, branch]
-        subprocess.check_output(cmd).decode('unicode_escape')
-        cmd = ['git', 'push', remote, tag]
-        subprocess.check_output(cmd).decode('unicode_escape')
-
+        if run_script in ['y', 'yes']:
+            # add & commit & tag
+            cmd = ['git', 'push', remote, branch]
+            subprocess.check_output(cmd).decode('unicode_escape')
+            cmd = ['git', 'push', remote, tag]
+            subprocess.check_output(cmd).decode('unicode_escape')
+        else:
+            # question
+            print('5. Please type the following commands to push the codes by yourself.')
+            print()
+            print('    >> git push {} {}'.format(remote, branch))
+            print('    >> git push {} {}'.format(remote, tag))
+            print()
     else:
         # question
         print('4. Please type the following commands to commit/tag/push the codes by yourself.')
