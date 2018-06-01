@@ -1,6 +1,26 @@
 # [foobar](https://github.com/Formlabs/factory-software/tree/master/components/foobar)
 
 
+## `0.11.0` `2018-06-01`
+
+<!--Summary Block; release/foobar/0.11.0; Don't modify/delete this comment.-->
+Not A Aplle.
+<!--Summary Block End; release/foobar/0.11.0; Don't modify/delete this comment.-->
+
+| Priority | Ticket | Summary | Assignee | Github | JIRA |
+|----------|--------|---------|----------|--------|------|
+|||Release release/foobar/0.11.0||[](https://github.com/Formlabs/factory-software/commit/)|[](https://formlabs.atlassian.net/browse/)|
+|||add c||[f5427ad](https://github.com/Formlabs/factory-software/commit/f5427ad2a30327c93967d5466bcfe67c9de453bf)|[](https://formlabs.atlassian.net/browse/)|
+
+Previous Release: `release/foobar/0.10.0`
+
+[Compare changes on Github](https://github.com/Formlabs/factory-software/compare/97b1eb0b8c3c180040fba9816a39b6a9f9f0560c...f5427ad2a30327c93967d5466bcfe67c9de453bf)
+
+
+```
+>> git diff 97b1eb0b8c3c180040fba9816a39b6a9f9f0560c f5427ad2a30327c93967d5466bcfe67c9de453bf components/foobar/
+```
+
 ## `0.10.0` `2018-06-01`
 
 <!--Summary Block; release/foobar/0.10.0; Don't modify/delete this comment.-->
@@ -13,16 +33,16 @@
 
 | Priority | Ticket | Summary | Assignee | Github | JIRA |
 |----------|--------|---------|----------|--------|------|
-|||Release release/foobar/0.10.0||[](https://github.com/Formlabs/factory-software/commit/)|[](https://formlabs.atlassian.net/browse/)|
+|||Release release/foobar/0.10.0||[97b1eb0](https://github.com/Formlabs/factory-software/commit/97b1eb0b8c3c180040fba9816a39b6a9f9f0560c)|[](https://formlabs.atlassian.net/browse/)|
 |||bugs fixed||[338cb88](https://github.com/Formlabs/factory-software/commit/338cb88efc0e788aae564fcb4281ffe2d376ce23)|[](https://formlabs.atlassian.net/browse/)|
 
 Previous Release: `release/foobar/0.9.1`
 
-[Compare changes on Github](https://github.com/Formlabs/factory-software/compare/edbaa00fc91d9e3596e8f9c0cec158efed2799a6...338cb88efc0e788aae564fcb4281ffe2d376ce23)
+[Compare changes on Github](https://github.com/Formlabs/factory-software/compare/edbaa00fc91d9e3596e8f9c0cec158efed2799a6...97b1eb0b8c3c180040fba9816a39b6a9f9f0560c)
 
 
 ```
->> git diff edbaa00fc91d9e3596e8f9c0cec158efed2799a6 338cb88efc0e788aae564fcb4281ffe2d376ce23 components/foobar/
+>> git diff edbaa00fc91d9e3596e8f9c0cec158efed2799a6 97b1eb0b8c3c180040fba9816a39b6a9f9f0560c components/foobar/
 ```
 
 ## `0.9.1` `2018-05-31`
