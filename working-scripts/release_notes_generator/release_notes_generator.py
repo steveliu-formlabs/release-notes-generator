@@ -1,5 +1,21 @@
 #!/usr/bin/python3
 
+#########################################################################################
+#                                                                                       #
+# Usage:                                                                                #
+#                                                                                       #
+#   >> python3 release_notes_generator.py -h                                            #
+#                                                                                       #
+# Generate release notes for single component:                                          #
+#                                                                                       #
+#   >> python3 release_notes_generator.py                                               #
+#                                                                                       #
+# Generate release notes for all component:                                             #
+#                                                                                       #
+#   >> python3 release_notes_generator.py --all                                         #
+#                                                                                       #
+#########################################################################################
+
 import re
 import os
 import subprocess
@@ -12,7 +28,7 @@ import argparse
 # github
 GITHUB_COMMIT_URL = 'https://github.com/Formlabs/factory-software/commit/'
 GITHUB_PULL_URL = 'https://github.com/Formlabs/factory-software/pull/'
-GITHUB_CMP_URL = 'https://github.com/steveliu-formlabs/release-notes-generator/compare/'
+GITHUB_CMP_URL = 'https://github.com/Formlabs/factory-software/compare/'
 GITHUB_COMPONENT_URL = 'https://github.com/Formlabs/factory-software/tree/master/components/'
 
 # jira
@@ -41,6 +57,7 @@ VERSION_REGEX = '(?:[0-9]+\.)+[0-9]+|$'
 
 # misc
 COMPONENT_FILE_PATH = 'components/{}/release-notes.md'
+COMPONENT_DIR_PATH = 'components/{}/'
 TAG_NAME = 'release/{}/{}'
 
 
@@ -69,6 +86,14 @@ def get_latest_commit_id():
     cmd = ['git', 'log', '--pretty=format:%H']
     out = subprocess.check_output(cmd).decode('unicode_escape')
     return out.strip().split()[0]
+
+
+def get_date_by_commit_id(commit_id):
+    """Return latest commit id.
+    """
+    cmd = ['git', '--no-pager', 'show', '-s', '--format=%ad', '--date=short', commit_id]
+    out = subprocess.check_output(cmd).decode('unicode_escape')
+    return out.strip()
 
 
 def get_release_tag_names_by_date():
@@ -106,11 +131,13 @@ def fetch_github_release():
     for tag_name in tag_names:
         _, component, version = tag_name.split('/')
         cmd = ['git', 'rev-list', '-n', '1', tag_name]
-        out = subprocess.check_output(cmd).decode('unicode_escape')
+        tag_commit_id = subprocess.check_output(cmd).decode('unicode_escape').strip()
         if component not in component_tags:
             # append the root commit as the first commit of each component
-            component_tags[component] = [{'tag_name': '', 'tag_commit_id': first_commit_id}]
-        component_tags[component].append({'tag_name': tag_name, 'tag_commit_id': out.strip()})
+            component_tags[component] = [{'tag_name': '', 'tag_commit_id': first_commit_id,
+                                          'tag_date': get_date_by_commit_id(first_commit_id)}]
+        component_tags[component].append({'tag_name': tag_name, 'tag_commit_id': tag_commit_id,
+                                          'tag_date': get_date_by_commit_id(tag_commit_id)})
 
     # find ancestor:
     #
@@ -234,7 +261,35 @@ def fetch_jira_tickets(fts):
     return tickets
 
 
-def generate_markdown_text(release_date, title, headers, rows, tag):
+def grep_old_markdown_summary():
+    """Return old summary for each tag.
+    """
+    tag_summary = {}
+    # iterate old release notes
+    for component in os.listdir('components'):
+        release_notes = COMPONENT_FILE_PATH.format(component)
+        if os.path.isfile(release_notes):
+            with open(release_notes, 'r') as f:
+                tag = None
+                lines = f.readlines()
+                for line in lines:
+                    # set the tag flag to None
+                    if line.startswith('<!--Summary Block End;'):
+                        tag = None
+                    if tag is not None:
+                        tag_summary[tag] += line
+                    # set the tag and then we can start to append the summary
+                    if line.startswith('<!--Summary Block;'):
+                        tag = line.strip().split(';')[1].strip()
+                        tag_summary[tag] = ''
+
+    # left strip the newline
+    for tag in tag_summary.keys():
+        tag_summary[tag] = tag_summary[tag].lstrip()
+    return tag_summary
+
+
+def generate_markdown_text(release_date, headers, old_summary, rows, tag):
     """Return string for the MarkDown Table.
 
     A Single Markdown Table:
@@ -265,6 +320,10 @@ def generate_markdown_text(release_date, title, headers, rows, tag):
     text = '\n'
     # table version & date
     text += '## `{}` `{}`\n\n'.format(tag['tag_name'].split('/')[-1], release_date)
+    # table summary
+    text += '<!--Summary Block; {}; Don\'t modify/delete this comment.-->\n\n'.format(tag['tag_name'])
+    text += old_summary
+    text += '<!--Summary Block End; {}; Don\'t modify/delete this comment.-->\n\n'.format(tag['tag_name'])
     # table header
     text += '| {} |\n'.format(' | '.join(headers))
     # table separator
@@ -274,13 +333,14 @@ def generate_markdown_text(release_date, title, headers, rows, tag):
         text += '|' + '|'.join(row) + '|'
         text += '\n'
     text += '\n'
-    # previoud release tag
+    # previous release tag
     text += 'Previous Release: `{}`\n\n'.format(tag['pre_tag_name'])
     # compare changes on Github
     text += '[Compare changes on Github]({}{}...{})\n\n'.format(
         GITHUB_CMP_URL, tag['pre_tag_commit_id'], tag['tag_commit_id'])
     # git commands
-    text += '\n```\n>> git diff {} {}\n```\n'.format(tag['pre_tag_commit_id'], tag['tag_commit_id'])
+    text += '\n```\n>> git diff {} {} {}\n```\n'.format(
+        tag['pre_tag_commit_id'], tag['tag_commit_id'], COMPONENT_DIR_PATH.format(tag['tag_name'].split('/')[1]))
     return text
 
 
@@ -335,11 +395,13 @@ def command_prompt_step1(component_tags):
         component_tags[component] = [
             {
                 'tag_name': '',
-                'tag_commit_id': first_commit_id
+                'tag_commit_id': first_commit_id,
+                'tag_date': get_date_by_commit_id(first_commit_id)
             },
             {
                 'tag_name': TAG_NAME.format(component, version),
                 'tag_commit_id': latest_commit_id,
+                'tag_date': datetime.datetime.now().strftime('%Y-%m-%d'),
                 'pre_tag_name': '',
                 'pre_tag_commit_id': first_commit_id,
             }
@@ -370,8 +432,10 @@ def command_prompt_step1(component_tags):
         # find the latest commit id for this version
         component_tags[component].append({
             'tag_name': TAG_NAME.format(component, version),
-            'tag_commit_id': latest_commit_id
+            'tag_commit_id': latest_commit_id,
+            'tag_date': datetime.datetime.now().strftime('%Y-%m-%d')
         })
+
         # inverted index for commit id & tag name
         commit_id_tag_name = {}
         for tag in component_tags[component]:
@@ -416,6 +480,9 @@ def command_prompt_step2(component_tags, select_component, gen_all_docs):
     except subprocess.CalledProcessError:
         raise ValueError('You have uncommited files. Please commit all the changes.')
 
+    # grep the old summary for each tag
+    tag_old_summary = grep_old_markdown_summary()
+
     # generate text for each component
     component_text = {}
     print()
@@ -440,7 +507,7 @@ def command_prompt_step2(component_tags, select_component, gen_all_docs):
             # commit the doc files.
             if component == select_component and i == len(tags) - 1:
                 tickets.insert(0, {
-                    'date': datetime.datetime.now().strftime('%Y-%m-%d'),
+                    'date': '',
                     'commit_id': '',
                     'title': 'Release {}'.format(tags[i]['tag_name']),
                     'ft': '',
@@ -460,20 +527,23 @@ def command_prompt_step2(component_tags, select_component, gen_all_docs):
                 # if it is also in jira ticket, we ise the information form JIRA
                 if ticket['ft']:
                     row[2] = ticket['summary']
-                    row[4] = '[{}]({}{})'.format('#' + ticket['pull_id'], GITHUB_PULL_URL, ticket['pull_id'])
+                    if ticket['pull_id']:
+                        row[4] = '[{}]({}{})'.format('#' + ticket['pull_id'], GITHUB_PULL_URL, ticket['pull_id'])
+                    else:
+                        row[4] = '[{}]({}{})'.format(ticket['commit_id'][:7], GITHUB_COMMIT_URL, ticket['commit_id'])
                 else:
                     row[2] = ticket['title']
                     row[4] = '[{}]({}{})'.format(ticket['commit_id'][:7], GITHUB_COMMIT_URL, ticket['commit_id'])
                 row[5] = '[{}]({}{})'.format(ticket['ft'], JIRA_TICKET_URL, ticket['ft'])
                 rows.append(row)
 
-            # release_date
-            release_date = tickets[0]['date'] if tickets else ''
+            # old summary
+            old_summary = tag_old_summary[tags[i]['tag_name']] if tags[i]['tag_name'] in tag_old_summary else ''
 
             # concatenate the Markdown text
             if component not in component_text:
                 component_text[component] = '# [{}]({})\n\n'.format(component, GITHUB_COMPONENT_URL + component)
-            text = generate_markdown_text(release_date, tags[i]['tag_name'], headers, rows, tags[i])
+            text = generate_markdown_text(tags[i]['tag_date'], headers, old_summary, rows, tags[i])
             component_text[component] += text
     print()
 
@@ -535,6 +605,7 @@ def command_prompt_step3_step4(component_tags, select_component, select_version,
         print('    >> git push {} {}'.format(remote, tag))
         print()
         print('Do you want the script run push commands for you? [Y/N]: ', end='')
+        print()
 
         # get the conformation whether to automatically run the commands
         run_script = input().strip().lower()
